@@ -24,6 +24,7 @@ let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
 ```
 
+
 ```js
 // Deprecated
 let optionsA = {titleBarStyle: 'hidden-inset'}
@@ -201,6 +202,7 @@ Each Electron release includes two identical ARM builds with slightly different 
 The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
 
 For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+
 
 ## `FIXME` comments
 
