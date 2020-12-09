@@ -55,6 +55,7 @@ If you don't want to do manual shortcut parsing there are libraries that do adva
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
+Mousetrap.bind('?', () => { console.log('show shortcuts!') Mousetrap.bind('4', () => { console.log('4') })
 Mousetrap.bind('?', () => { console.log('show shortcuts!') })
 Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
 
