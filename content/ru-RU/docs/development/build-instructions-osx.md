@@ -4,13 +4,13 @@
 
 ## Требования
 
-- macOS >= 10.11.6
-- [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
-- [node.js](http://nodejs.org) (внешнее)
+* macOS >= 10.11.6
+* [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
+* [node.js](http://nodejs.org) (внешнее)
 
 Если вы используете Python, скачайте Homebrew, необходимо также установить следующие модули Python:
 
-- [pyobjc](https://pythonhosted.org/pyobjc/install.html)
+* [pyobjc](https://pythonhosted.org/pyobjc/install.html)
 
 ## macOS SDK
 
