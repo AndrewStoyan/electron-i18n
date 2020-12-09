@@ -6,7 +6,7 @@ From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.o
 
 ## Setting up Spectron
 
-[Spectron](https://electron.atom.io/spectron) is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+[Spectron][spectron] is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
 
 ```bash
 $ npm install --save-dev spectron
@@ -153,3 +153,5 @@ client
 To test your application without rebuilding Electron, simply [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
 
 Alternatively, pass an argument to run with your electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+
+[spectron]: https://electron.atom.io/spectron
