@@ -149,8 +149,9 @@ $ ./node_modules/.bin/electron .
 
 #### Windows
 
-    $ .\node_modules\.bin\electron .
-    
+```
+$ .\node_modules\.bin\electron .
+```
 
 ### Руководство скачивания Electron бинарников
 
@@ -170,8 +171,9 @@ $ ./electron/electron your-app/
 
 #### Windows
 
-    $ .\electron\electron.exe your-app\
-    
+```
+$ .\electron\electron.exe your-app\
+```
 
 `Electron.app` здесь является частью релиз пакета Electron, вы можете скачать его [тут](https://github.com/electron/electron/releases).
 
