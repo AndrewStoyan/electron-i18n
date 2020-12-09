@@ -41,7 +41,7 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 ### `process.noDeprecation`
 
 A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`.  
-Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+Setting this to `true` will silence deprecation warnings.  This property is used instead of the `--no-deprecation` command line flag.
 
 ### `process.resourcesPath`
 
@@ -49,15 +49,14 @@ A `String` representing the path to the resources directory.
 
 ### `process.throwDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings will be thrown as exceptions. Setting this to `true` will throw errors for deprecations. This property is used instead of the `--throw-deprecation` command line flag.
+A `Boolean` that controls whether or not deprecation warnings will be thrown as exceptions.  Setting this to `true` will throw errors for deprecations.  This property is used instead of the `--throw-deprecation` command line flag.
 
 ### `process.traceDeprecation`
 
-A `Boolean` that controls whether or not deprecations printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for deprecations. This property is instead of the `--trace-deprecation` command line flag.
+A `Boolean` that controls whether or not deprecations printed to `stderr` include their stack trace.  Setting this to `true` will print  stack traces for deprecations. This property is instead of the `--trace-deprecation` command line flag.
 
 ### `process.traceProcessWarnings`
-
-A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
+A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace.  Setting this to `true` will print stack traces for process warnings (including deprecations).  This property is instead of the `--trace-warnings` command line flag.
 
 ### `process.type`
 
@@ -108,8 +107,8 @@ Returns `Object`:
 
 * `total` Integer - The total amount of physical memory in Kilobytes available to the system.
 * `free` Integer - The total amount of memory not being used by applications or disk cache.
-* `swapTotal` Integer - The total amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
-* `swapFree` Integer - The free amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
+* `swapTotal` Integer - The total amount of swap memory in Kilobytes available to the system.  _Windows_ _Linux_
+* `swapFree` Integer - The free amount of swap memory in Kilobytes available to the system.  _Windows_ _Linux_
 
 Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
 
