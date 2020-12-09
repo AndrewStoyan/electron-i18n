@@ -6,8 +6,9 @@ If you've been using Node and npm for a while, you are probably aware of [Semant
 
 Semantic versions are always made up of three numbers:
 
-    major.minor.patch
-    
+```
+major.minor.patch
+```
 
 Semantic version numbers are bumped (incremented) using the following rules:
 
@@ -17,8 +18,9 @@ Semantic version numbers are bumped (incremented) using the following rules:
 
 A simple mnemonic for remembering this scheme is as follows:
 
-    breaking.feature.fix
-    
+```
+breaking.feature.fix
+```
 
 ## Нумерация версий Electron
 
