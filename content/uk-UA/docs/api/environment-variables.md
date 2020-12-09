@@ -54,6 +54,7 @@ Don't use the global menu bar on Linux.
 
 The following environment variables are intended primarily for development and debugging purposes.
 
+
 ### `ELECTRON_ENABLE_LOGGING`
 
 Prints Chrome's internal logging to the console.
