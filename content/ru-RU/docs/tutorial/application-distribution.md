@@ -63,24 +63,25 @@ electron/resources/
 
 Структура переименования app будет такая:
 
-    MyApp.app/Contents
-    ├── Info.plist
-    ├── MacOS/
-    │   └── MyApp
-    └── Frameworks/
-        ├── MyApp Helper EH.app
-        |   ├── Info.plist
-        |   └── MacOS/
-        |       └── MyApp Helper EH
-        ├── MyApp Helper NP.app
-        |   ├── Info.plist
-        |   └── MacOS/
-        |       └── MyApp Helper NP
-        └── MyApp Helper.app
-            ├── Info.plist
-            └── MacOS/
-                └── MyApp Helper
-    
+```
+MyApp.app/Contents
+├── Info.plist
+├── MacOS/
+│   └── MyApp
+└── Frameworks/
+    ├── MyApp Helper EH.app
+    |   ├── Info.plist
+    |   └── MacOS/
+    |       └── MyApp Helper EH
+    ├── MyApp Helper NP.app
+    |   ├── Info.plist
+    |   └── MacOS/
+    |       └── MyApp Helper NP
+    └── MyApp Helper.app
+        ├── Info.plist
+        └── MacOS/
+            └── MyApp Helper
+```
 
 ### Linux
 
@@ -109,24 +110,25 @@ electron/resources/
 1. Установить [Surf](https://github.com/surf-build/surf), через npm: `npm install -g surf-build@latest`
 
 2. Создайте новый S3 bucket и создайте следующую структуру пустых каталогов:
-    
-        - atom-shell/
-          - symbols/
-          - dist/
-        
+
+    ```
+    - atom-shell/
+   - symbols/
+   - dist/
+    ```
 
 3. Установите следующие переменные среды:
 
-* `ELECTRON_GITHUB_TOKEN` - токен, который может создавать релизы на GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - место, куда вы будете отправлять node.js заголовки, а также символы
-* `ELECTRON_RELEASE` - установите `true` и отправьте часть выполняться, оставить без изменений, `surf-build` просто будет делать проверки CI-типа, необходимо запускать для каждого pull request'а.
-* `CI` - установите в `true` или иначе произойдет сбой
-* `GITHUB_TOKEN` - установите его так же, как `ELECTRON_GITHUB_TOKEN`
-* `SURF_TEMP` - установите в `C:\Temp` на Windows для предотвращения проблем слишком длинного пути
-* `TARGET_ARCH` - установить в `ia32` или `x64` 
+  * `ELECTRON_GITHUB_TOKEN` - токен, который может создавать релизы на GitHub
+  * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - место, куда вы будете отправлять node.js заголовки, а также символы
+  * `ELECTRON_RELEASE` - установите `true` и отправьте часть выполняться, оставить без изменений, `surf-build` просто будет делать проверки CI-типа, необходимо запускать для каждого pull request'а.
+  * `CI` - установите в `true` или иначе произойдет сбой
+  * `GITHUB_TOKEN` - установите его так же, как `ELECTRON_GITHUB_TOKEN`
+  * `SURF_TEMP` - установите в `C:\Temp` на Windows для предотвращения проблем слишком длинного пути
+  * `TARGET_ARCH` - установить в `ia32` или `x64`
 
-1. В `script/upload.py`, вы *должны* установить `ELECTRON_REPO` к вашему форку (`MYORG/electron`), особенно если вы участник сопровождающий Electron.
+4. В `script/upload.py`, вы *должны* установить `ELECTRON_REPO` к вашему форку (`MYORG/electron`), особенно если вы участник сопровождающий Electron.
 
-2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
+5. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Ждать очень, очень долгое время для завершения построения.
+6. Ждать очень, очень долгое время для завершения построения.
