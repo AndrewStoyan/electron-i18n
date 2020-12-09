@@ -1,12 +1,12 @@
 # Технические различия между Electron и NW.js (прежний node-webkit)
 
-**Примечание: Ранее Electron имел название Atom Shell.**
+__Примечание: Ранее Electron имел название Atom Shell.__
 
 Как и NW.js, Electron предоставляет платформу для создания приложений с использованием JavaScript и HTML и использует интеграцию с Node для предоставления низкоуровневого доступа к системе используя web страницы.
 
 Но также есть фундаментальные различия между проектами которые делают Electron совершенно отдельным продуктом от NW.js:
 
-**1. Точка входа в приложение**
+__1. Точка входа в приложение__
 
 В NW.js основной входной точкой приложения является web страница. Вы указываете URL главной страницы в `package.json` и она будет открыта в окне браузера как главное окно приложения.
 
@@ -14,15 +14,15 @@
 
 Electron работает, скорее, как среда выполнения Node.js. API Electron является более низкоуровневым, благодаря чему вы можете использовать его для тестирования браузера вместо [PhantomJS](http://phantomjs.org/).
 
-**2. Система сборки**
+__2. Система сборки__
 
 In order to avoid the complexity of building all of Chromium, Electron uses [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) to access Chromium's Content API. `libchromiumcontent` это отдельная библиотека, которая включает в себя модуль Chromium Content и все его зависимости. Пользователям не потребуются высокопроизводительные машины для сборки Electron.
 
-**3. Интеграция Node**
+__3. Интеграция Node__
 
 In NW.js, the Node integration in web pages requires patching Chromium to work, while in Electron we chose a different way to integrate the libuv loop with each platform's message loop to avoid hacking Chromium. See the [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) code for how that was done.
 
-**4. Multi-context**
+__4. Multi-context__
 
 If you are an experienced NW.js user, you should be familiar with the concept of Node context and web context. These concepts were invented because of how NW.js was implemented.
 
