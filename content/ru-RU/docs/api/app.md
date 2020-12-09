@@ -73,7 +73,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `path` String
 
-Возникает, когда пользователь хочет открыть файл. Событие `open-file` обычно возникает, когда приложение уже открыто и хочет использовать ОС, чтобы открыть файл. `open-file` также возникает, когда файл удаляется на dock, а приложение еще не запущено. Убедитесь, что обработчик `open-file` события в самом начале запуска вашего приложения обрабатывает этот случай (даже прежде, чем возникнет ` ready` событие).
+Возникает, когда пользователь хочет открыть файл. Событие `open-file` обычно возникает, когда приложение уже открыто и хочет использовать ОС, чтобы открыть файл. `open-file` также возникает, когда файл удаляется на dock, а приложение еще не запущено. Убедитесь, что обработчик `open-file` события в самом начале запуска вашего приложения обрабатывает этот случай (даже прежде, чем возникнет `ready` событие).
 
 Вы должны вызвать `event.preventDefault()`, если хотите обработать это событие.
 
@@ -164,7 +164,7 @@ app.on('window-all-closed', () => {
 * `url` String
 * `error` String - код ошибки
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Function 
+* `callback` Function
   * `isTrusted` Boolean - учитывать ли сертификат как надёжный
 
 Возникает, когда не удалось проверить `certificate` для `url`, чтобы доверять сертификату, вы должны предотвратить поведение по умолчанию с `event.preventDefault()` и вызвать `callback(true)`.
@@ -191,7 +191,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+* `callback` Function
   * `certificate` [Certificate](structures/certificate.md) (опиционально)
 
 Возникает при запросе сертификата клиента.
@@ -213,17 +213,17 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `request` Object 
+* `request` Object
   * `method` String
   * `url` URL
   * `referrer` URL
-* `authInfo` Object 
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Function
   * `username` String
   * `password` String
 
@@ -268,19 +268,19 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Попробуйте закрыть все окна. Сначала возникнет событие `before-quit`. Если все окна успешно закрыты, событие `will-quit` возникнет и по умолчанию приложение будет завершено.
 
-Этот метод гарантирует, что все обработчики событий `beforeunload` и ` unload` выполнятся корректно. Вполне возможно, что окно отменит выход, возвращая `false` в обработчике событий `beforeunload`.
+Этот метод гарантирует, что все обработчики событий `beforeunload` и `unload` выполнятся корректно. Вполне возможно, что окно отменит выход, возвращая `false` в обработчике событий `beforeunload`.
 
 ### `app.exit([exitCode])`
 
 * `exitCode` Integer (опиционально)
 
-Выход немедленно `exitCode`. `exitCode` по умолчанию 0.
+Выход немедленно `exitCode`.  `exitCode` по умолчанию 0.
 
 Все окна будут закрыты сразу без запросов пользователя и `before-quit` и `will-quit` события не будут возникать.
 
 ### `app.relaunch([options])`
 
-* `options` Object (опиционально) 
+* `options` Object (опиционально)
   * `args` String[] - (опиционально)
   * `execPath` String (опиционально)
 
@@ -330,12 +330,12 @@ app.exit(0)
 Вы можете запросить следующие пути по имени:
 
 * `home` домашний каталог пользователя.
-* `appData` каталог данных приложений для каждого пользователя, который по умолчанию указывает на: 
+* `appData` каталог данных приложений для каждого пользователя, который по умолчанию указывает на:
   * `%APPDATA%` на Windows
   * `$XDG_CONFIG_HOME` или `~/.config` на Linux
   * `~/Library/Application Support` на macOS
 * `userData` каталог для хранения файлов конфигурации вашего приложения, которые по умолчанию является `appData` добавляется с именем вашего приложения.
-* ` temp ` временный каталог.
+* `temp` временный каталог.
 * `exe` текущий исполняемый файл.
 * `module` библиотека `libchromiumcontent`.
 * `desktop` каталог рабочего стола, текущего пользователя.
@@ -349,12 +349,12 @@ app.exit(0)
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (опиционально) 
-  * `size` String 
+* `options` Object (опиционально)
+  * `size` String
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 on *Linux*, 32x32 on *Windows*, не поддерживается на *macOS*.
-* `callback` Function 
+* `callback` Function
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -362,8 +362,8 @@ app.exit(0)
 
 На *Windows*, там 2 вида значков:
 
-* Значки, связанные с определенными расширениями, как `.mp3`, `.png`, и т.д.
-* Значки внутри файла, как `.exe`, `.dll`, `.ico`.
+- Значки, связанные с определенными расширениями, как `.mp3`, `.png`, и т.д.
+- Значки внутри файла, как `.exe`, `.dll`, `.ico`.
 
 На *Linux* и *macOS* значки зависят от приложения, связанного с типом mime файла.
 
@@ -439,6 +439,7 @@ API использует внутренний реестр Windows и LSSetDefau
 Возвращает `Boolean` - был ли вызов успешным.
 
 Этот метод проверяет, является ли текущий исполняемый файл, как обработчик протокола по умолчанию (так называемая схема URI). Если является, то убирает приложение, как обработчик по умолчанию.
+
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -553,7 +554,7 @@ app.setJumpList([
 
 ### `app.makeSingleInstance(callback)`
 
-* `callback` Function 
+* `callback` Function
   * `argv` String [] - массив аргументов командной строки вторичных экземпляров
   * `workingDirectory` String - рабочий каталог вторичных экземпляров
 
@@ -616,10 +617,10 @@ app.on('ready', () => {
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `options` Object 
+* `options` Object
   * `certificate` String - путь к pkcs12 файлу.
   * `password` String - парольная фраза для сертификата.
-* `callback` Function 
+* `callback` Function
   * `result` Integer - результат импорта.
 
 Импорт сертификата в формате pkcs12 из платформы хранилища сертификатов. `callback` вызывает `result` импорт операции, значение `` указывает на успех в то время как любое другое значение указывает на ошибку в соответствии с Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
@@ -670,7 +671,7 @@ app.on('ready', () => {
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Object (опиционально) 
+* `options` Object (опиционально)
   * `path` String (опиционально) *Windows* - исполняемый путь для сравнения. По умолчанию `process.execPath`.
   * `args` String [] (опционально) *Windows* - аргументы командной строки для сравнения. По умолчанию пустой массив.
 
@@ -688,7 +689,7 @@ app.on('ready', () => {
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
-* `settings` Object 
+* `settings` Object
   * `openAtLogin` Boolean (опиционально) - `true` открыть приложение при входе в систему, `false` удалять приложение в качестве элемента входа. По умолчанию `false`.
   * `openAsHidden` Boolean (опиционально) - `true` открыть приложение как скрытое. Значение по умолчанию: `false`. Пользователь может редактировать этот параметр из системных настроек, так `.wasOpenedAsHidden app.getLoginItemStatus ()` должен быть проверен при открытии приложения и знать текущее значение. Этот параметр поддерживается только на macOS.
   * `path` String (опиционально) *Windows* - исполняемый файл запускается при входе в систему. По умолчанию `process.execPath`.
@@ -698,7 +699,7 @@ app.on('ready', () => {
 
 Для работы с Electron `autoUpdater` на Windows, который использует [Squirrel](https://github.com/Squirrel/Squirrel.Windows), вы можете задать путь запуска Update.exe и передавать аргументы, которые указывают на имя приложения. Например:
 
-```javascript
+``` javascript
 const appFolder = path.dirname(process.execPath)
 const updateExe = path.resolve(appFolder, '..', 'Update.exe')
 const exeName = path.basename(process.execPath)
@@ -721,7 +722,7 @@ app.setLoginItemSettings({
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
-* `options` Object 
+* `options` Object
   * `applicationName` String (опиционально) - имя приложения.
   * `applicationVersion` String (опиционально) - версия приложения.
   * `copyright` String (опиционально) - copyright информация.
