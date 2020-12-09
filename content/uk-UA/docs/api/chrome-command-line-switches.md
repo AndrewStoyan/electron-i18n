@@ -46,7 +46,7 @@ Specifies the flags passed to the Node JS engine. It has to be passed when start
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
+See the [Node documentation][node-cli] or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
 
 ## --proxy-server=`address:port`
 
@@ -96,8 +96,9 @@ A comma-separated list of servers for which integrated authentication is enabled
 
 For example:
 
-    --auth-server-whitelist='*example.com, *foobar.com, *baz'
-    
+```
+--auth-server-whitelist='*example.com, *foobar.com, *baz'
+```
 
 then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
 
@@ -146,3 +147,5 @@ Gives the per-module maximal V-logging levels to override the value given by `--
 Any pattern containing a forward or backward slash will be tested against the whole pathname and not just the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
 This switch only works when `--enable-logging` is also passed.
+
+[node-cli]: https://nodejs.org/api/cli.html
