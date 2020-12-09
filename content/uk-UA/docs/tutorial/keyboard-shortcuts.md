@@ -4,7 +4,7 @@
 
 ## Local Shortcuts
 
-You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
+You can use the [Menu][] module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`][] property when creating a [MenuItem][].
 
 ```js
 const {Menu, MenuItem} = require('electron')
@@ -78,3 +78,7 @@ Mousetrap.bind('up up down down left right left right b a enter', () => {
   console.log('konami code')
 })
 ```
+
+[Menu]: ../api/menu.md
+[MenuItem]: ../api/menu-item.md
+[`accelerator`]: ../api/accelerator.md
