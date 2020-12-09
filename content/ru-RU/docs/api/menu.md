@@ -1,5 +1,6 @@
 ## Class: Menu
 
+
 > Create native application menus and context menus.
 
 Процесс: [Main](../glossary.md#main-process)
@@ -53,7 +54,7 @@ The `menu` object has the following instance methods:
 #### `menu.popup([browserWindow, options])`
 
 * `browserWindow` BrowserWindow (optional) - Default is the focused window.
-* `options` Object (опиционально) 
+* `options` Object (опиционально)
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
   * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
@@ -212,6 +213,7 @@ window.addEventListener('contextmenu', (e) => {
 </script>
 ```
 
+
 ## Notes on macOS Application Menu
 
 macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
@@ -264,12 +266,13 @@ Template:
 
 Menu:
 
-    <br />- 1
-    - 2
-    - 3
-    - 4
-    - 5
-    
+```
+<br />- 1
+- 2
+- 3
+- 4
+- 5
+```
 
 Template:
 
@@ -286,11 +289,13 @@ Template:
 
 Menu:
 
-    <br />- ---
-    - a
-    - b
-    - c
-    - ---
-    - 1
-    - 2
-    - 3
+```
+<br />- ---
+- a
+- b
+- c
+- ---
+- 1
+- 2
+- 3
+```
