@@ -192,7 +192,7 @@ This will fail when the app is signed for distribution in the Mac App Store. Sub
 
 ## Cryptographic Algorithms Used by Electron
 
-Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval.
+Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval. Encryption Registration (ERN) approval.
 
 Electron uses following cryptographic algorithms:
 
