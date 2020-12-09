@@ -30,7 +30,7 @@ HOME=~/.electron-gyp npm install
 
 ### Installing modules and rebuilding for Electron
 
-You can also choose to install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) package. This module can get the version of Electron and handle the manual steps of downloading headers and building native modules for your app.
+You can also choose to install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`][electron-rebuild] package. This module can get the version of Electron and handle the manual steps of downloading headers and building native modules for your app.
 
 An example of installing `electron-rebuild` and then rebuild modules with it:
 
@@ -76,3 +76,5 @@ The [`node-pre-gyp` tool](https://github.com/mapbox/node-pre-gyp) provides a way
 Usually those modules work fine under Electron, but sometimes when Electron uses a newer version of V8 than Node, and there are ABI changes, bad things may happen. So in general it is recommended to always build native modules from source code.
 
 If you are following the `npm` way of installing modules, then this is done by default, if not, you have to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.
+
+[electron-rebuild]: https://github.com/paulcbetts/electron-rebuild
