@@ -60,7 +60,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Function 
+* `callback` Function
   * `event` String
   * `userInfo` Object
 
@@ -84,7 +84,7 @@ Removes the subscriber with `id`.
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Function 
+* `callback` Function
   * `event` String
   * `userInfo` Object
 
@@ -169,7 +169,7 @@ const alpha = color.substr(6, 2) // "dd"
 
 ### `systemPreferences.getColor(color)` *Windows*
 
-* `color` String - One of the following values: 
+* `color` String - One of the following values:
   * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
   * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
   * `3d-highlight` - Highlight color for three-dimensional display elements.
@@ -201,8 +201,10 @@ const alpha = color.substr(6, 2) // "dd"
   * `window-frame` - Window frame.
   * `window-text` - Text in windows.
 
-Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) for more details.
+Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs][windows-colors] for more details.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
 Returns `Boolean` - `true` if an inverted color scheme, such as a high contrast theme, is active, `false` otherwise.
+
+[windows-colors]: https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx
