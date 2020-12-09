@@ -30,7 +30,7 @@ The `crashReporter` module has the following methods:
 
 ### `crashReporter.start(options)`
 
-* `options` Object 
+* `options` Object
   * `companyName` String (optional)
   * `submitURL` String - URL that crash reports will be sent to as POST.
   * `productName` String (optional) - Defaults to `app.getName()`.
@@ -77,7 +77,7 @@ Returns all uploaded crash reports. Each report contains the date and uploaded I
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
-Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
+Returns `Boolean` - Whether reports should be submitted to the server.  Set through the `start` method or `setUploadToServer`.
 
 **Note:** This API can only be called from the main process.
 
