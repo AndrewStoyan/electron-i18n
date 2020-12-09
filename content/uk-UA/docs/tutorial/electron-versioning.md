@@ -1,13 +1,14 @@
 # Версії Electron
 
-If you've been using Node and npm for a while, you are probably aware of [Semantic Versioning](http://semver.org), or SemVer for short. It's a convention for specifying version numbers for software that helps communicate intentions to the users of your software.
+If you've been using Node and npm for a while, you are probably aware of [Semantic Versioning][], or SemVer for short. It's a convention for specifying version numbers for software that helps communicate intentions to the users of your software.
 
 ## Overview of Semantic Versioning
 
 Semantic versions are always made up of three numbers:
 
-    major.minor.patch
-    
+```
+major.minor.patch
+```
 
 Semantic version numbers are bumped (incremented) using the following rules:
 
@@ -17,8 +18,9 @@ Semantic version numbers are bumped (incremented) using the following rules:
 
 A simple mnemonic for remembering this scheme is as follows:
 
-    breaking.feature.fix
-    
+```
+breaking.feature.fix
+```
 
 ## Версії Electron
 
@@ -39,3 +41,5 @@ npm install electron --save-exact --save-dev
 The `--save-exact` flag will add `electron` to your `package.json` file without using a `^` or `~`, e.g. `1.6.2` instead of `^1.6.2`. This practice ensures that all upgrades of Electron are a manual operation made by you, the developer.
 
 Alternatively, you can use the `~` prefix in your SemVer range, like `~1.6.2`. This will lock your major and minor version, but allow new patch versions to be installed.
+
+[Semantic Versioning]: http://semver.org
