@@ -21,9 +21,11 @@ app.on('ready', () => {
   tray.setToolTip('This is my application.')
   tray.setContextMenu(contextMenu)
 })
+  tray.setContextMenu(contextMenu)
+})
 ```
 
-**Ограничения платформ:**
+__Ограничения платформ:__
 
 * On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
 * On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
@@ -43,16 +45,16 @@ app.on('ready', () => {
     {label: 'Item1', type: 'radio'},
     {label: 'Item2', type: 'radio'},
     [1],
-    
+
   ])
   enu.items.checked is my application.')
   con.setContextMenu(contextMenu)
 })
 ```
-
 * Для лучшего качества иконок на платформе Windows рекомендуется использовать `ICO` иконки.
 
 Если вы хотите добиться одинаковой работы вашего приложения на всех платформах, то не следует полагаться на событие `click` и всегда создавать контекстное меню для иконки в трее.
+
 
 ### `new Tray(image)`
 
@@ -66,7 +68,7 @@ The `Tray` module emits the following events:
 
 #### Event: 'click'
 
-* `event` Event 
+* `event` Event
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -77,7 +79,7 @@ Emitted when the tray icon is clicked.
 
 #### Event: 'right-click' *macOS* *Windows*
 
-* `event` Event 
+* `event` Event
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -88,7 +90,7 @@ Emitted when the tray icon is right clicked.
 
 #### Event: 'double-click' *macOS* *Windows*
 
-* `event` Event 
+* `event` Event
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -141,7 +143,7 @@ Emitted when a drag operation ends on the tray or ends at another location.
 
 #### Event: 'mouse-enter' *macOS*
 
-* `event` Event 
+* `event` Event
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -152,7 +154,7 @@ Emitted when the mouse enters the tray icon.
 
 #### Event: 'mouse-leave' *macOS*
 
-* `event` Event 
+* `event` Event
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -195,7 +197,7 @@ Sets the title displayed aside of the tray icon in the status bar.
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` String - Highlight mode with one of the following values: 
+* `mode` String - Highlight mode with one of the following values:
   * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
   * `always` - Always highlight the tray icon.
   * `never` - Never highlight the tray icon.
@@ -223,7 +225,7 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Object 
+* `options` Object
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
   * `title` String - (optional)
   * `content` String - (optional)
