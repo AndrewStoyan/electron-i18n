@@ -22,7 +22,8 @@ Electron's version of Chromium is usually updated within one or two weeks after 
 
 When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
 
-In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
+In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this _just works_ but sometimes it means patching Node.js.
+
 
 ### Versioning
 
