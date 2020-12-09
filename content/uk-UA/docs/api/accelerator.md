@@ -15,9 +15,9 @@ Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module 
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // Реєстрація 'CommandOrControl+Y' слухача комбінації.
+  // Register a 'CommandOrControl+Y' shortcut listener.
   globalShortcut.register('CommandOrControl+Y', () => {
-    // Виконати коли комбінація натиснута.
+    // Do stuff when Y and either Command/Control is pressed.
   })
 })
 ```
