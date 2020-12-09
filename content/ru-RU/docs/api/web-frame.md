@@ -61,8 +61,8 @@ webFrame.setZoomFactor(2)
 
 * `language` String
 * `autoCorrectWord` Boolean
-* `provider` Object 
-  * `spellCheck` Function - возвращает `Boolean` 
+* `provider` Object
+  * `spellCheck` Function - возвращает `Boolean`
     * `text` String
 
 Задает поставщика для проверки орфографии в полях ввода и текстовых областях.
@@ -97,7 +97,7 @@ webFrame.setSpellCheckProvider('en-US', true, {
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
-* `options` Object (опционально) 
+* `options` Object (опционально)
   * `secure` Boolean - (опционально) по умолчанию true.
   * `bypassCSP` Boolean - (опционально) по умолчанию true.
   * `allowServiceWorkers` Boolean - (опционально) по умолчанию true.
@@ -123,7 +123,7 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 * `code` String
 * `userGesture` Boolean (опиционально) - по умолчанию `false`.
-* `callback` Function (опционально) - вызывается после выполнения сценария. 
+* `callback` Function (опционально) - вызывается после выполнения сценария.
   * `result` Any
 
 Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
