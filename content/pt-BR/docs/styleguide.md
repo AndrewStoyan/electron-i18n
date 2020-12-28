@@ -1,16 +1,16 @@
-# Estilo da Documentação do Electron
+# Electron Documentation Styleguide
 
-Estas são as diretrizes para escrever a documentação do Electron.
+These are the guidelines for writing Electron documentation.
 
-## Títulos
+## Titles
 
-* Cada página deve ter um único `#` no nível de título na parte superior.
-* Capítulos na mesma página devem ter `##` títulos de nível.
-* Subcapítulos precisam de aumentar o número de `#` no título de acordo com sua profundidade de aninhamento.
-* Todas as palavras no títulos da página devem estar em letras maiúsculas, exceto conjunções como "de" e "e".
-* Somente a primeira palavra de um capítulo deve estar em letra maiúscula.
+* Each page must have a single `#`-level title at the top.
+* Chapters in the same page must have `##`-level titles.
+* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
+* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
+* Only the first word of a chapter title must be capitalized.
 
-Usado o `Inicio rápido` como exemplo:
+Using `Quick Start` as example:
 
 ```markdown
 # Quick Start
@@ -95,10 +95,10 @@ Using `autoUpdater` as an example:
 * Constructors must be listed with `###`-level titles.
 * [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
 * [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
+* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description"
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
+* Instance Properties must be listed under an `### Instance Properties` chapter.
   * Instance properties must start with "A [Property Type] ..."
 
 Using the `Session` and `Cookies` classes as an example:
@@ -156,8 +156,9 @@ For example, the methods of the `Session` class under the `session` module must 
 
 The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
 
-    required[, optional]
-    
+```
+required[, optional]
+```
 
 Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
