@@ -12,23 +12,23 @@ These are things to do in addition to updating the Electron code for any Chrome/
 - Upgrade `vendor/depot_tools` for any build tools changes needed
 - Update the `libchromiumcontent` SHA-1 to download in `script/lib/config.py`
 - Open a pull request on `electron/libchromiumcontent` with the changes
-- Open a pull request on `electron/electron` with the changes 
+- Open a pull request on `electron/electron` with the changes
   - This should include upgrading the submodules in `vendor/` as needed
-- Verify debug builds succeed on: 
+- Verify debug builds succeed on:
   - macOS
   - 32-bit Windows
   - 64-bit Window
   - 32-bit Linux
   - 64-bit Linux
   - ARM Linux
-- Verify release builds succeed on: 
+- Verify release builds succeed on:
   - macOS
   - 32-bit Windows
   - 64-bit Window
   - 32-bit Linux
   - 64-bit Linux
   - ARM Linux
-- Verify tests pass on: 
+- Verify tests pass on:
   - macOS
   - 32-bit Windows
   - 64-bit Window
