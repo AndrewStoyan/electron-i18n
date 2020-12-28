@@ -2,7 +2,7 @@
 
 > Handle responses to HTTP/HTTPS requests.
 
-Processo: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 `IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -10,7 +10,7 @@ Processo: [Main](../glossary.md#main-process)
 
 #### Event: 'data'
 
-Retorna:
+Returns:
 
 * `chunk` Buffer - A chunk of response body's data.
 
@@ -26,7 +26,7 @@ Emitted when a request has been canceled during an ongoing HTTP transaction.
 
 #### Event: 'error'
 
-Retorna:
+Returns:
 
 `error` Error - Typically holds an error string identifying failure root cause.
 
