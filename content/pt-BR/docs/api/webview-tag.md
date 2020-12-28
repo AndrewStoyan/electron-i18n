@@ -8,7 +8,7 @@ Use the `webview` tag to embed 'guest' content (such as web pages) in your Elect
 
 Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
 
-## Exemplo
+## Example
 
 To embed a web page in your app, add the `webview` tag to your app's embedder page (this is the app page that will display the guest content). In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
 
@@ -160,7 +160,7 @@ When this attribute is present the guest page will be allowed to open new window
 
 A list of strings which specifies the web preferences to be set on the webview, separated by `,`. The full list of supported preference strings can be found in [BrowserWindow](browser-window.md#new-browserwindowoptions).
 
-The string follows the same format as the features string in `window.open`. A name by itself is given a `true` boolean value. A preference can be set to another value by including an `=`, followed by the value. Special values `yes` and `1` are interpreted as `true`, while `no` and `` are interpreted as `false`.
+The string follows the same format as the features string in `window.open`. A name by itself is given a `true` boolean value. A preference can be set to another value by including an `=`, followed by the value. Special values `yes` and `1` are interpreted as `true`, while `no` and `0` are interpreted as `false`.
 
 ### `blinkfeatures`
 
@@ -168,7 +168,7 @@ The string follows the same format as the features string in `window.open`. A na
 <webview src="https://www.github.com/" blinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-A list of strings which specifies the blink features to be enabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
+A list of strings which specifies the blink features to be enabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5][blink-feature-string] file.
 
 ### `disableblinkfeatures`
 
@@ -176,7 +176,7 @@ A list of strings which specifies the blink features to be enabled separated by 
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-A list of strings which specifies the blink features to be disabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
+A list of strings which specifies the blink features to be disabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5][blink-feature-string] file.
 
 ### `guestinstance`
 
@@ -227,7 +227,7 @@ The `webview` tag has the following methods:
 
 **Note:** The webview element must be loaded before using the methods.
 
-**Exemplo**
+**Example**
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -239,7 +239,7 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `options` Object (optional) 
+* `options` Object (optional)
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -338,7 +338,7 @@ Injects CSS into the guest page.
 
 * `code` String
 * `userGesture` Boolean - Default `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `callback` Function (optional) - Called after script has been executed.
   * `result` Any
 
 Evaluates `code` in page. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
@@ -437,7 +437,7 @@ Inserts `text` to the focused element.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (optional) 
+* `options` Object (optional)
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
@@ -448,7 +448,7 @@ Starts a request to find all matches for the `text` in the web page and returns 
 
 ### `<webview>.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request. 
+* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request.
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -457,7 +457,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
-* `options` Object (optional) 
+* `options` Object (optional)
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -466,13 +466,13 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
-* `options` Object 
+* `options` Object
   * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
   * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
-* `callback` Function 
+* `callback` Function
   * `error` Error
   * `data` Buffer
 
@@ -481,7 +481,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 ### `<webview>.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
-* `callback` Function 
+* `callback` Function
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([rect, ]callback)`.
@@ -515,7 +515,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
 
-### `<webview>.showDefinitionForSelection()` *macOS*
+### `<webview>.showDefinitionForSelection()` _macOS_
 
 Shows pop-up dictionary that searches the selected word on the page.
 
@@ -529,7 +529,7 @@ The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-Retorna:
+Returns:
 
 * `url` String
 * `isMainFrame` Boolean
@@ -542,7 +542,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 ### Event: 'did-fail-load'
 
-Retorna:
+Returns:
 
 * `errorCode` Integer
 * `errorDescription` String
@@ -553,7 +553,7 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 ### Event: 'did-frame-finish-load'
 
-Retorna:
+Returns:
 
 * `isMainFrame` Boolean
 
@@ -569,7 +569,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 ### Event: 'did-get-response-details'
 
-Retorna:
+Returns:
 
 * `status` Boolean
 * `newURL` String
@@ -584,7 +584,7 @@ Fired when details regarding a requested resource is available. `status` indicat
 
 ### Event: 'did-get-redirect-request'
 
-Retorna:
+Returns:
 
 * `oldURL` String
 * `newURL` String
@@ -598,7 +598,7 @@ Fired when document in the given frame is loaded.
 
 ### Event: 'page-title-updated'
 
-Retorna:
+Returns:
 
 * `title` String
 * `explicitSet` Boolean
@@ -607,7 +607,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 ### Event: 'page-favicon-updated'
 
-Retorna:
+Returns:
 
 * `favicons` String[] - Array of URLs.
 
@@ -623,7 +623,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-Retorna:
+Returns:
 
 * `level` Integer
 * `message` String
@@ -643,9 +643,9 @@ webview.addEventListener('console-message', (e) => {
 
 ### Event: 'found-in-page'
 
-Retorna:
+Returns:
 
-* `result` Object 
+* `result` Object
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -666,7 +666,7 @@ console.log(requestId)
 
 ### Event: 'new-window'
 
-Retorna:
+Returns:
 
 * `url` String
 * `frameName` String
@@ -691,7 +691,7 @@ webview.addEventListener('new-window', (e) => {
 
 ### Event: 'will-navigate'
 
-Retorna:
+Returns:
 
 * `url` String
 
@@ -701,11 +701,11 @@ This event will not emit when the navigation is started programmatically with AP
 
 It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-Calling `event.preventDefault()` does **NOT** have any effect.
+Calling `event.preventDefault()` does __NOT__ have any effect.
 
 ### Event: 'did-navigate'
 
-Retorna:
+Returns:
 
 * `url` String
 
@@ -715,7 +715,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 ### Event: 'did-navigate-in-page'
 
-Retorna:
+Returns:
 
 * `isMainFrame` Boolean
 * `url` String
@@ -739,7 +739,7 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-Retorna:
+Returns:
 
 * `channel` String
 * `args` Array
@@ -776,7 +776,7 @@ Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
-Retorna:
+Returns:
 
 * `name` String
 * `version` String
@@ -797,7 +797,7 @@ Emitted when media is paused or done playing.
 
 ### Event: 'did-change-theme-color'
 
-Retorna:
+Returns:
 
 * `themeColor` String
 
@@ -809,7 +809,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 ### Event: 'update-target-url'
 
-Retorna:
+Returns:
 
 * `url` String
 
@@ -826,3 +826,5 @@ Emitted when DevTools is closed.
 ### Event: 'devtools-focused'
 
 Emitted when DevTools is focused / opened.
+
+[blink-feature-string]: https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62
