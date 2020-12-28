@@ -2,7 +2,7 @@
 
 > Render and control web pages.
 
-Processo: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 `webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
 
@@ -43,7 +43,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 > Render and control the contents of a BrowserWindow instance.
 
-Processo: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 ### Instance Events
 
@@ -53,7 +53,7 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 #### Event: 'did-fail-load'
 
-Retorna:
+Returns:
 
 * `event` Event
 * `errorCode` Integer
@@ -65,7 +65,7 @@ This event is like `did-finish-load` but emitted when the load failed or was can
 
 #### Event: 'did-frame-finish-load'
 
-Retorna:
+Returns:
 
 * `event` Event
 * `isMainFrame` Boolean
@@ -82,7 +82,7 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 #### Event: 'did-get-response-details'
 
-Retorna:
+Returns:
 
 * `event` Event
 * `status` Boolean
@@ -98,7 +98,7 @@ Emitted when details regarding a requested resource are available. `status` indi
 
 #### Event: 'did-get-redirect-request'
 
-Retorna:
+Returns:
 
 * `event` Event
 * `oldURL` String
@@ -113,7 +113,7 @@ Emitted when a redirect is received while requesting a resource.
 
 #### Event: 'dom-ready'
 
-Retorna:
+Returns:
 
 * `event` Event
 
@@ -121,7 +121,7 @@ Emitted when the document in the given frame is loaded.
 
 #### Event: 'page-favicon-updated'
 
-Retorna:
+Returns:
 
 * `event` Event
 * `favicons` String[] - Array of URLs
@@ -130,7 +130,7 @@ Emitted when page receives favicon urls.
 
 #### Event: 'new-window'
 
-Retorna:
+Returns:
 
 * `event` Event
 * `url` String
@@ -157,7 +157,7 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 
 #### Event: 'will-navigate'
 
-Retorna:
+Returns:
 
 * `event` Event
 * `url` String
@@ -172,7 +172,7 @@ Calling `event.preventDefault()` will prevent the navigation.
 
 #### Event: 'did-navigate'
 
-Retorna:
+Returns:
 
 * `event` Event
 * `url` String
@@ -183,7 +183,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 #### Event: 'did-navigate-in-page'
 
-Retorna:
+Returns:
 
 * `event` Event
 * `url` String
@@ -195,7 +195,7 @@ When in-page navigation happens, the page URL changes but does not cause navigat
 
 #### Event: 'will-prevent-unload'
 
-Retorna:
+Returns:
 
 * `event` Event
 
@@ -224,7 +224,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 #### Event: 'crashed'
 
-Retorna:
+Returns:
 
 * `event` Event
 * `killed` Boolean
@@ -233,7 +233,7 @@ Emitted when the renderer process crashes or is killed.
 
 #### Event: 'plugin-crashed'
 
-Retorna:
+Returns:
 
 * `event` Event
 * `name` String
@@ -247,18 +247,18 @@ Emitted when `webContents` is destroyed.
 
 #### Event: 'before-input-event'
 
-Retorna:
+Returns:
 
 * `event` Event
-* `input` Object - Input properties 
+* `input` Object - Input properties
   * `type` String - Either `keyUp` or `keyDown`
-  * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `code` String - Equivalent to [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `control` Boolean - Equivalent to [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `alt` Boolean - Equivalent to [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `key` String - Equivalent to [KeyboardEvent.key][keyboardevent]
+  * `code` String - Equivalent to [KeyboardEvent.code][keyboardevent]
+  * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat][keyboardevent]
+  * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey][keyboardevent]
+  * `control` Boolean - Equivalent to [KeyboardEvent.controlKey][keyboardevent]
+  * `alt` Boolean - Equivalent to [KeyboardEvent.altKey][keyboardevent]
+  * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey][keyboardevent]
 
 Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
 
@@ -288,64 +288,64 @@ Emitted when DevTools is closed.
 
 Emitted when DevTools is focused / opened.
 
-#### Evento: 'certificate-error'
+#### Event: 'certificate-error'
 
-Retorna:
+Returns:
 
 * `event` Event
 * `url` String
-* `error` String - O código do erro
+* `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Function 
+* `callback` Function
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
 
 Emitted when failed to verify the `certificate` for `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
-#### Evento: 'select-client-certificate'
+#### Event: 'select-client-certificate'
 
-Retorna:
+Returns:
 
 * `event` Event
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+* `callback` Function
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
-Emitido quando um certificado de cliente é solicitado.
+Emitted when a client certificate is requested.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### Evento: 'login'
+#### Event: 'login'
 
-Retorna:
+Returns:
 
 * `event` Event
-* `request` Object 
+* `request` Object
   * `method` String
   * `url` URL
   * `referrer` URL
-* `authInfo` Object 
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Function
   * `username` String
   * `password` String
 
-Emitido quando `webContents` quer fazer uma autenticação básica.
+Emitted when `webContents` wants to do basic auth.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Event: 'found-in-page'
 
-Retorna:
+Returns:
 
 * `event` Event
-* `result` Object 
+* `result` Object
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -372,7 +372,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 #### Event: 'update-target-url'
 
-Retorna:
+Returns:
 
 * `event` Event
 * `url` String
@@ -381,7 +381,7 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 #### Event: 'cursor-changed'
 
-Retorna:
+Returns:
 
 * `event` Event
 * `type` String
@@ -396,10 +396,10 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 #### Event: 'context-menu'
 
-Retorna:
+Returns:
 
 * `event` Event
-* `params` Object 
+* `params` Object
   * `x` Integer - x coordinate
   * `y` Integer - y coordinate
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
@@ -416,7 +416,7 @@ Retorna:
   * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
   * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
-  * `mediaFlags` Object - The flags for the media element the context menu was invoked on. 
+  * `mediaFlags` Object - The flags for the media element the context menu was invoked on.
     * `inError` Boolean - Whether the media element has crashed.
     * `isPaused` Boolean - Whether the media element is paused.
     * `isMuted` Boolean - Whether the media element is muted.
@@ -425,7 +425,7 @@ Retorna:
     * `isControlsVisible` Boolean - Whether the media element's controls are visible.
     * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
     * `canRotate` Boolean - Whether the media element can be rotated.
-  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action. 
+  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action.
     * `canUndo` Boolean - Whether the renderer believes it can undo.
     * `canRedo` Boolean - Whether the renderer believes it can redo.
     * `canCut` Boolean - Whether the renderer believes it can cut.
@@ -438,14 +438,14 @@ Emitted when there is a new context menu that needs to be handled.
 
 #### Event: 'select-bluetooth-device'
 
-Retorna:
+Returns:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Function 
+* `callback` Function
   * `deviceId` String
 
-Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
+Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled.  If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
 
 ```javascript
 const {app, webContents} = require('electron')
@@ -468,7 +468,7 @@ app.on('ready', () => {
 
 #### Event: 'paint'
 
-Retorna:
+Returns:
 
 * `event` Event
 * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -492,7 +492,7 @@ Emitted when the devtools window instructs the webContents to reload
 
 #### Event: 'will-attach-webview'
 
-Retorna:
+Returns:
 
 * `event` Event
 * `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
@@ -509,7 +509,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (optional) 
+* `options` Object (optional)
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -645,7 +645,7 @@ Injects CSS into the current web page.
 
 * `code` String
 * `userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `callback` Function (optional) - Called after script has been executed.
   * `result` Any
 
 Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -654,7 +654,7 @@ Evaluates `code` in page.
 
 In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
 
-If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
+If the result of the executed code is a promise the callback result will be the resolved value of the promise.  We recommend that you use the returned Promise to handle code that results in a Promise.
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -663,7 +663,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` _Experimental_
 
 * `ignore` Boolean
 
@@ -687,7 +687,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 #### `contents.getZoomFactor(callback)`
 
-* `callback` Function 
+* `callback` Function
   * `zoomFactor` Number
 
 Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
@@ -700,7 +700,7 @@ Changes the zoom level to the specified level. The original size is 0 and each i
 
 #### `contents.getZoomLevel(callback)`
 
-* `callback` Function 
+* `callback` Function
   * `zoomLevel` Number
 
 Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
@@ -790,7 +790,7 @@ Inserts `text` to the focused element.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (optional) 
+* `options` Object (optional)
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
@@ -801,7 +801,7 @@ Starts a request to find all matches for the `text` in the web page and returns 
 
 #### `contents.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
+* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request.
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -821,21 +821,21 @@ console.log(requestId)
 #### `contents.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
-* `callback` Function 
+* `callback` Function
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
 #### `contents.hasServiceWorker(callback)`
 
-* `callback` Function 
+* `callback` Function
   * `hasWorker` Boolean
 
 Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
 
 #### `contents.unregisterServiceWorker(callback)`
 
-* `callback` Function 
+* `callback` Function
   * `success` Boolean
 
 Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
@@ -848,7 +848,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options])`
 
-* `options` Object (optional) 
+* `options` Object (optional)
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -861,13 +861,13 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `options` Object 
+* `options` Object
   * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
   * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
-* `callback` Function 
+* `callback` Function
   * `error` Error
   * `data` Buffer
 
@@ -933,7 +933,7 @@ Removes the specified path from DevTools workspace.
 
 #### `contents.openDevTools([options])`
 
-* `options` Object (optional) 
+* `options` Object (optional)
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
 Opens the devtools.
@@ -977,7 +977,7 @@ The renderer process can handle the message by listening to `channel` with the `
 An example of sending messages from the main process to the renderer process:
 
 ```javascript
-// No processo main.
+// In the main process.
 const {app, BrowserWindow} = require('electron')
 let win = null
 
@@ -1005,13 +1005,13 @@ app.on('ready', () => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Object 
-  * `screenPosition` String - Specify the screen type to emulate (default: `desktop`) 
+* `parameters` Object
+  * `screenPosition` String - Specify the screen type to emulate (default: `desktop`)
     * `desktop` - Desktop screen type
     * `mobile` - Mobile screen type
   * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile)
   * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{x: 0, y: 0}`)
-  * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: ``)
+  * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: `0`)
   * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
   * `fitToView` Boolean - Whether emulated view should be scaled down if necessary to fit into available space (default: `false`)
   * `offset` [Point](structures/point.md) - Offset of the emulated view inside available space (not in fit to view mode) (default: `{x: 0, y: 0}`)
@@ -1025,7 +1025,7 @@ Disable device emulation enabled by `webContents.enableDeviceEmulation`.
 
 #### `contents.sendInputEvent(event)`
 
-* `event` Object 
+* `event` Object
   * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp`, `char`.
   * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
@@ -1060,7 +1060,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * `onlyDirty` Boolean (optional) - Defaults to `false`
-* `callback` Function 
+* `callback` Function
   * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
@@ -1076,7 +1076,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` Object 
+* `item` Object
   * `file` String or `files` Array - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
@@ -1085,11 +1085,11 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
 #### `contents.savePage(fullPath, saveType, callback)`
 
 * `fullPath` String - The full file path.
-* `saveType` String - Specify the save type. 
+* `saveType` String - Specify the save type.
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Function - `(error) => {}`. 
+* `callback` Function - `(error) => {}`.
   * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
@@ -1107,7 +1107,7 @@ win.webContents.on('did-finish-load', () => {
 })
 ```
 
-#### `contents.showDefinitionForSelection()` *macOS*
+#### `contents.showDefinitionForSelection()` _macOS_
 
 Shows pop-up dictionary that searches the selected word on the page.
 
@@ -1115,8 +1115,8 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 Set the size of the page. This is only supported for `<webview>` guest contents.
 
-* `options` Object 
-  * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
+* `options` Object
+  * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
     * `width` Integer
     * `height` Integer
 
@@ -1158,13 +1158,13 @@ Returns `String` - Returns the WebRTC IP Handling Policy.
 
 #### `contents.setWebRTCIPHandlingPolicy(policy)`
 
-* `policy` String - Specify the WebRTC IP Handling Policy. 
-  * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
-  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
-  * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
-  * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
+* `policy` String - Specify the WebRTC IP Handling Policy.
+  * `default` - Exposes user's public and local IPs.  This is the default behavior.  When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
+  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP.  When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
+  * `default_public_and_private_interfaces` - Exposes user's public and local IPs.  When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
+  * `disable_non_proxied_udp` - Does not expose public or local IPs.  When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
 
-Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
+Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC.  See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
 
 #### `contents.getOSProcessId()`
 
@@ -1193,3 +1193,17 @@ A `WebContents` of DevTools for this `WebContents`.
 #### `contents.debugger`
 
 A [Debugger](debugger.md) instance for this webContents.
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+[keyboardevent]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
