@@ -1,16 +1,16 @@
-# Instruções para Configurar (Linux)
+# Build Instructions (Linux)
 
-Siga as instruções abaixo para configurar o Electron no Linux.
+Follow the guidelines below for building Electron on Linux.
 
-## Pré-requisitos
+## Prerequisites
 
-* Pelo o menos o 25GB de espaço em disco e 8GB de memória RAM.
-* Python 2.7x. Para algumas distribuições como o CentOS 6.x continue usando o Python 2.6.x, então você precisa verificar a versão do Python com o comando `python -V`.
-* Node.js. Existem várias maneiras para instalar o Node. You can download source code from [nodejs.org](http://nodejs.org) and compile it. Isto permite somente instalar o Node em seu próprio diretório como o usuário padrão. Ou pode tentar no repositório [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* At least 25GB disk space and 8GB RAM.
+* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
+* Node.js. There are various ways to install Node. You can download source code from [nodejs.org](http://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
-* Cabeçalho do GTK+ e libnotify.
+* Development headers of GTK+ and libnotify.
 
-No Ubuntu, é necessário instalar as seguintes bibliotecas:
+On Ubuntu, install the following libraries:
 
 ```bash
 $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
@@ -20,7 +20,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
                        gperf bison
 ```
 
-No RHEL (Red Hat) / CentOS, é necessário instalar as seguintes bibliotecas:
+On RHEL / CentOS, install the following libraries:
 
 ```bash
 $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
@@ -29,7 +29,7 @@ $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-No Fedora, é necessário instalar as seguintes bibliotecas:
+On Fedora, install the following libraries:
 
 ```bash
 $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
@@ -38,26 +38,26 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-Outras distribuições podem oferecer estas bibliotecas para serem instaladas através de gerenciadores de pacote, como o pacman. Ou você pode compilar o código fonte.
+Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
 
-## Obtendo o Código Fonte
+## Getting the Code
 
 ```bash
 $ git clone https://github.com/electron/electron
 ```
 
-## Inicialização
+## Bootstrapping
 
-O script de inicialização irá baixar todas as dependências necessárias e criar os arquivos de configuração do projeto. Você deve ter o Python 2.7.x para que o script tenha sucesso. Pode levar algum tempo para baixar certos arquivos. Observe que estamos utilizando `ninja` para configurar o Electron, não existe nenhum `Makefile` gerado.
+The bootstrap script will download all necessary build dependencies and create the build project files. You must have Python 2.7.x for the script to succeed. Downloading certain files can take a long time. Notice that we are using `ninja` to build Electron so there is no `Makefile` generated.
 
 ```bash
 $ cd electron
 $ ./script/bootstrap.py --verbose
 ```
 
-### Forçar compilação
+### Cross compilation
 
-Se você deseja configurar para o caminho de `arm`, você precisa instalar as seguintes dependências:
+If you want to build for an `arm` target you should also install the following dependencies:
 
 ```bash
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
@@ -70,75 +70,84 @@ And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_
 $ ./script/bootstrap.py -v --target_arch=arm
 ```
 
-## Compilando
+## Building
 
-Se você deseja de compilar tanto para `Release` e `Debug`:
+If you would like to build both `Release` and `Debug` targets:
 
 ```bash
 $ ./script/build.py
 ```
 
-O script irá gerar um executável do Electron muito grande para ser gravado no diretório `out/R`. O tamanho do arquivo é superior a 1.3 gigabytes. Isso acontece porque o binário contém sinais de depuração. Para reduzir o tamanho do arquivo, execute o script `create-dist.py`:
+This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
 
 ```bash
 $ ./script/create-dist.py
 ```
 
-Com isso será gerado uma distribuição muito menor no diretório `dist`. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
+This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
 
-Você também pode compilar somente o `Debug`:
+You can also build the `Debug` target only:
 
 ```bash
 $ ./script/build.py -c D
 ```
 
-Após a finalização, você pode encontrar o `electron` debug no diretório `out/D`.
+After building is done, you can find the `electron` debug binary under `out/D`.
 
-## Excluindo
+## Cleaning
 
-Para excluir os arquivos de compilação:
+To clean the build files:
 
 ```bash
 $ npm run clean
 ```
 
-Para excluir somente os diretórios `out` e `dist`:
+To clean only `out` and `dist` directories:
 
 ```bash
 $ npm run clean-build
 ```
 
-**Nota:** Os dois comandos exigem que seja executado o `bootstrap` novamente antes da compilação.
+**Note:** Both clean commands require running `bootstrap` again before building.
 
-## Solução de Problemas
+## Troubleshooting
 
-### Erro ao carregar bibliotecas compartilhadas: libtinfo.so.5
+### Error While Loading Shared Libraries: libtinfo.so.5
 
-Prebuilt `clang` irá atentar vincular a `libtinfo.so.5`. Dependendo da arquitetura utilizada, um link é criado para `libncurses`:
+Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
 ```bash
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Testes
+## Tests
 
-Veja [Visão Geral do Sistema: Testes](build-system-overview.md#tests)
+See [Build System Overview: Tests](build-system-overview.md#tests)
 
-## Tópicos Avançados
+## Advanced topics
 
 The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
-### Compilando `libchromiumcontent` localmente
+### Building `libchromiumcontent` locally
 
-To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps: 1. Install [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install) 2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies) 3. Fetch the git submodules:
+To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally.  To do so, follow these steps:
+  1. Install [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
+  2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
+  3. Fetch the git submodules:
 
-    $ git submodule update --init --recursive 4. Copy the .gclient config file
+  ```bash
+  $ git submodule update --init --recursive
+  ```
+  4. Copy the .gclient config file
 
-    $ cp vendor/libchromiumcontent/.gclient . 5. Pass the 
+  ```bash
+  $ cp vendor/libchromiumcontent/.gclient .
+  ```
+  5. Pass the `--build_libchromiumcontent` switch to `bootstrap.py` script:
 
-`--build_libchromiumcontent` switch to `bootstrap.py` script:
-
-    $ ./script/bootstrap.py -v --build_libchromiumcontent
+  ```bash
+  $ ./script/bootstrap.py -v --build_libchromiumcontent
+  ```
 
 Note that by default the `shared_library` configuration is not built, so you can only build `Release` version of Electron if you use this mode:
 
@@ -146,7 +155,7 @@ Note that by default the `shared_library` configuration is not built, so you can
 $ ./script/build.py -c R
 ```
 
-### Usando o `clang` em vez de fazer o download dos binários de `clang`
+### Using system `clang` instead of downloaded `clang` binaries
 
 By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
 
@@ -168,7 +177,7 @@ $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_libchromiumcontent --disab
 $ ./script/build.py -c R
 ```
 
-### Variáveis de ambiente
+### Environment variables
 
 Apart from `CC` and `CXX`, you can also set following environment variables to custom the building configurations:
 
