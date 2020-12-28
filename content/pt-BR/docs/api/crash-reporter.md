@@ -30,7 +30,7 @@ The `crashReporter` module has the following methods:
 
 ### `crashReporter.start(options)`
 
-* `options` Object 
+* `options` Object
   * `companyName` String (optional)
   * `submitURL` String - URL that crash reports will be sent to as POST.
   * `productName` String (optional) - Defaults to `app.getName()`.
@@ -75,21 +75,21 @@ Returns [`CrashReport[]`](structures/crash-report.md):
 
 Returns all uploaded crash reports. Each report contains the date and uploaded ID.
 
-### `crashReporter.getUploadToServer()` *Linux* *macOS*
+### `crashReporter.getUploadToServer()` _Linux_ _macOS_
 
-Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
+Returns `Boolean` - Whether reports should be submitted to the server.  Set through the `start` method or `setUploadToServer`.
 
 **Note:** This API can only be called from the main process.
 
-### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
+### `crashReporter.setUploadToServer(uploadToServer)` _Linux_ _macOS_
 
-* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server
+* `uploadToServer` Boolean _macOS_ - Whether reports should be submitted to the server
 
 This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
 **Note:** This API can only be called from the main process.
 
-### `crashReporter.setExtraParameter(key, value)` *macOS*
+### `crashReporter.setExtraParameter(key, value)` _macOS_
 
 * `key` String - Parameter key, must be less than 64 characters long.
 * `value` String - Parameter value, must be less than 64 characters long. Specifying `null` or `undefined` will remove the key from the extra parameters.
