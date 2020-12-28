@@ -1,4 +1,4 @@
-# Renderização fora da tela
+# Offscreen Rendering
 
 Offscreen rendering lets you obtain the content of a browser window in a bitmap, so it can be rendered anywhere, for example on a texture in a 3D scene. The offscreen rendering in Electron uses a similar approach than the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
 
@@ -16,11 +16,11 @@ GPU accelerated rendering means that the GPU is used for composition. Because of
 
 This mode uses a software output device for rendering in the CPU, so the frame generation is much faster, thus this mode is preferred over the GPU accelerated one.
 
-To enable this mode GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
+To enable this mode GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`][disablehardwareacceleration] API.
 
 ## Usage
 
-```javascript
+``` javascript
 const {app, BrowserWindow} = require('electron')
 
 app.disableHardwareAcceleration()
@@ -39,3 +39,5 @@ app.once('ready', () => {
   win.webContents.setFrameRate(30)
 })
 ```
+
+[disablehardwareacceleration]: ../api/app.md#appdisablehardwareacceleration
