@@ -18,7 +18,7 @@ This branch is created as a precaution to prevent any merged PRs from sneaking i
 
 ## Check for extant drafts
 
-The upload script [looks for an existing draft release](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/upload.py#L173-L181). To prevent your new release from clobbering an existing draft, check [the releases page](https://github.com/electron/electron/releases) and make sure there are no drafts.
+The upload script [looks for an existing draft release](https://github.com/electron/electron/blob/7961a97d7ddbed657c6c867cc8426e02c236c077/script/upload.py#L173-L181). To prevent your new release from clobbering an existing draft, check [the releases page][] and make sure there are no drafts.
 
 ## Bump the version
 
@@ -29,9 +29,9 @@ npm run bump-version -- patch
 git push origin HEAD
 ```
 
-This will bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example.
+This will bump the version number in several files. See [this bump commit][] for an example.
 
-Most releases will be `patch` level. Upgrades to Chrome or other major changes should use `minor`. For more info, see [electron-versioning](/docs/tutorial/electron-versioning.md).
+Most releases will be `patch` level. Upgrades to Chrome or other major changes should use `minor`. For more info, see [electron-versioning][].
 
 ## Wait for builds :hourglass_flowing_sand:
 
@@ -44,7 +44,7 @@ To monitor the build progress, see the following pages:
 
 ## Compile release notes
 
-Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
+Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page][].
 
 Tips:
 
@@ -56,67 +56,69 @@ Tips:
 
 For a `patch` release, use the following format:
 
-    ## Bug Fixes
-    
-    * Fixed a cross-platform thing. #123
-    
-    ### Linux
-    
-    * Fixed a Linux thing. #123
-    
-    ### macOS
-    
-    * Fixed a macOS thing. #123
-    
-    ### Windows
-    
-    * Fixed a Windows thing. #1234
-    
-    ## API Changes
-    
-    * Changed a thing. #123
-    
-    ### Linux
-    
-    * Changed a Linux thing. #123
-    
-    ### macOS
-    
-    * Changed a macOS thing. #123
-    
-    ### Windows
-    
-    * Changed a Windows thing. #123
-    
+```
+## Bug Fixes
+
+* Fixed a cross-platform thing. #123
+
+### Linux
+
+* Fixed a Linux thing. #123
+
+### macOS
+
+* Fixed a macOS thing. #123
+
+### Windows
+
+* Fixed a Windows thing. #1234
+
+## API Changes
+
+* Changed a thing. #123
+
+### Linux
+
+* Changed a Linux thing. #123
+
+### macOS
+
+* Changed a macOS thing. #123
+
+### Windows
+
+* Changed a Windows thing. #123
+```
 
 ### Minor releases
 
 For a `minor` release (which is normally a Chromium update, and possibly also a Node update), e.g. `1.8.0`, use this format:
 
-    **Note:** This is a beta release. This is the first release running on upgraded versions of Chrome/Node.js/V8 and most likely will have have some instability and/or regressions.
-    
-    Please file new issues for any bugs you find in it.
-    
-    This release is published to [npm](https://www.npmjs.com/package/electron) under the `beta` tag and can be installed via `npm install electron@beta`.
-    
-    ## Upgrades
-    
-    - Upgraded from Chrome `oldVersion` to `newVersion`. #123
-    - Upgraded from Node `oldVersion` to `newVersion`. #123
-    - Upgraded from v8 `oldVersion` to `newVersion`. #9116
-    
-    ## Other Changes
-    
-    - Some other change. #123
-    
+```
+**Note:** This is a beta release. This is the first release running on upgraded versions of Chrome/Node.js/V8 and most likely will have have some instability and/or regressions.
+
+Please file new issues for any bugs you find in it.
+
+This release is published to [npm](https://www.npmjs.com/package/electron) under the `beta` tag and can be installed via `npm install electron@beta`.
+
+## Upgrades
+
+- Upgraded from Chrome `oldVersion` to `newVersion`. #123
+- Upgraded from Node `oldVersion` to `newVersion`. #123
+- Upgraded from v8 `oldVersion` to `newVersion`. #9116
+
+## Other Changes
+
+- Some other change. #123
+```
 
 ## Edit the release draft
 
-1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
-2. Edit the release and add release notes.
-3. Ensure the `prerelease` checkbox is checked. This should happen automatically for Electron versions >=1.7
-4. Click 'Save draft'. **Do not click 'Publish release'!**
-5. Wait for all builds to pass before proceeding. 
+1. Visit [the releases page][] and you'll see a new draft release with placeholder release notes.
+1. Edit the release and add release notes.
+1. Ensure the `prerelease` checkbox is checked. This should happen automatically for Electron versions >=1.7
+1. Click 'Save draft'. **Do not click 'Publish release'!**
+1. Wait for all builds to pass before proceeding.
 
 ## Merge temporary branch
 
@@ -186,11 +188,18 @@ It's also good to ask users in Slack if they're using the beta versions successf
 
 To see what's beta and stable at any given time:
 
-    $ npm dist-tag ls electron  
-    beta: 1.7.5
-    latest: 1.6.11
-    
+```
+$ npm dist-tag ls electron  
+beta: 1.7.5
+latest: 1.6.11
+```
 
 To promote a beta version to stable (aka `latest`):
 
-    npm dist-tag add electron@1.2.3 latest
+```
+npm dist-tag add electron@1.2.3 latest
+```
+
+[the releases page]: https://github.com/electron/electron/releases
+[this bump commit]: https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a
+[electron-versioning]: /docs/tutorial/electron-versioning.md
