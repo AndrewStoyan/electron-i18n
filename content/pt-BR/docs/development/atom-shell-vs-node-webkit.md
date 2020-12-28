@@ -1,31 +1,33 @@
-# Diferentes Técnicas entre o Electron e NW.js (formalmente node-webkit)
+# Technical Differences Between Electron and NW.js (formerly node-webkit)
 
-**Nota: Anteriormente o Electron era chamado de Atom Shell.**
+__Note: Electron was previously named Atom Shell.__
 
-Como o NW.JS, o Electron fornece uma plataforma para escrever aplicações desktops com JavaScript e HTML, e também tem integração com o Node, permitindo acesso no sistema das páginas webs.
+Like NW.js, Electron provides a platform to write desktop applications with JavaScript and HTML and has Node integration to grant access to the low level system from web pages.
 
-Mas existe também uma diferença fundamental entre os dois projetos que faz com que o Electron seja um pouco diferente do NW.js:
+But there are also fundamental differences between the two projects that make Electron a completely separate product from NW.js:
 
-**1. Ponto de Entrada da Aplicação**
+__1. Entry of Application__
 
-No NW.js o ponto de entrada principal da aplicação é uma página web. Você especifica uma URL da página principal no arquivo `package.json` e a mesma é aberta em um navegador como a janela principal da aplicação.
+In NW.js the main entry point of an application is a web page. You specify a main page URL in the `package.json` and it is opened in a browser window as the application's main window.
 
-No Electron, o ponto de entrada é um arquivo JavaScript. Ao invés de fornecer uma URL, você cria uma janela do navegador e carrega um arquivo HTML usando a API. Você também pode "ouvir" eventos das janelas para decidir quando parar a aplicação.
+In Electron, the entry point is a JavaScript script. Instead of providing a URL directly, you manually create a browser window and load an HTML file using the API. You also need to listen to window events to decide when to quit the application.
 
-Electron funciona como o Node.js em tempo de execução. As APIs do Electron são de níveis baixo, você pode usa-las em um navegador no lugar do [PhantomJS](http://phantomjs.org/).
+Electron works more like the Node.js runtime. Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](http://phantomjs.org/).
 
-**2. Configurar o Sistema**
+__2. Build System__
 
-Para evitar uma complexidade de configuração do Chromium, o Electron utiliza a biblioteca [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) para acessar todas as APIs do Chromium. `libchromiumcontent` é uma biblioteca única que inclui todo os módulos do Chromium e as suas dependências. Não há a necessidade de ser administrador do sistema para que possa fazer uma configuração do Electron.
+In order to avoid the complexity of building all of Chromium, Electron uses [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) to access Chromium's Content API. `libchromiumcontent` is a single shared library that includes the Chromium Content module and all of its dependencies. Users don't need a powerful machine to build Electron.
 
-**3. Integração com o Node**
+__3. Node Integration__
 
-No NW.js a integração com o Node nas páginas web requer um patch do Chromium para funcionar, enquanto do Electron é possível escolher diferentes maneiras de integração com cada plataforma evitando um hacking no Chromium. Veja o código do [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) para saber como foi feito.
+In NW.js, the Node integration in web pages requires patching Chromium to work, while in Electron we chose a different way to integrate the libuv loop with each platform's message loop to avoid hacking Chromium. See the [`node_bindings`][node-bindings] code for how that was done.
 
-**4. Contexto Múltiplos**
+__4. Multi-context__
 
-Se você for um usuário experiente no NW.js, você deve está familiarizado com os conceitos de contextos do Node e web. Estes conceitos foram criados por causa da forma que o NW.js foi implementado.
+If you are an experienced NW.js user, you should be familiar with the concept of Node context and web context. These concepts were invented because of how NW.js was implemented.
 
-Usando o recurso de contextos múltiplos do Node, o Electron não contém um novo contexto de JavaScript nas suas páginas web.
+By using the [multi-context](http://strongloop.com/strongblog/whats-new-node-js-v0-12-multiple-context-execution/) feature of Node, Electron doesn't introduce a new JavaScript context in web pages.
 
-Nota: Múltiplos contextos são opcionais no NW.js desde da versão 0.13.
+Note: NW.js has optionally supported multi-context since 0.13.
+
+[node-bindings]: https://github.com/electron/electron/tree/master/atom/common
