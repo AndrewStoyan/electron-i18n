@@ -4,13 +4,13 @@
 
 Process: [Main](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarScrubber(options)` *Experimental*
+### `new TouchBarScrubber(options)` _Experimental_
 
-* `options` Object 
+* `options` Object
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber
-  * `select` Function - Called when the user taps an item that was not the last tapped item 
+  * `select` Function - Called when the user taps an item that was not the last tapped item
     * `selectedIndex` Integer - The index of the item the user selected
-  * `highlight` Function - Called when the user taps any item 
+  * `highlight` Function - Called when the user taps any item
     * `highlightedIndex` Integer - The index of the item the user touched
   * `selectedStyle` String - Selected item style. Defaults to `null`.
   * `overlayStyle` String - Selected overlay item style. Defaults to `null`.
@@ -28,7 +28,7 @@ A `ScrubberItem[]` array representing the items in this scrubber. Updating this 
 
 #### `touchBarScrubber.selectedStyle`
 
-A `String` representing the style that selected items in the scrubber should have. Updating this value immediately updates the control in the touch bar. Possible values:
+A `String` representing the style that selected items in the scrubber should have. Updating this value immediately updates the control in the touch bar.  Possible values:
 
 * `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`
 * `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`
@@ -36,7 +36,7 @@ A `String` representing the style that selected items in the scrubber should hav
 
 #### `touchBarScrubber.overlayStyle`
 
-A `String` representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. Possible values:
+A `String` representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar.  Possible values:
 
 * `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`
 * `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`
