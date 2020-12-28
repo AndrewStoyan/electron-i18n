@@ -2,9 +2,9 @@
 
 > Add icons and context menus to the system's notification area.
 
-Processo: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
-`Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Tray` is an [EventEmitter][event-emitter].
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
@@ -23,7 +23,7 @@ app.on('ready', () => {
 })
 ```
 
-**Platform limitations:**
+__Platform limitations:__
 
 * On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
 * On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
@@ -49,10 +49,10 @@ app.on('ready', () => {
   appIcon.setContextMenu(contextMenu)
 })
 ```
-
 * On Windows it is recommended to use `ICO` icons to get best visual effects.
 
 If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
+
 
 ### `new Tray(image)`
 
@@ -66,7 +66,7 @@ The `Tray` module emits the following events:
 
 #### Event: 'click'
 
-* `event` Event 
+* `event` Event
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -75,9 +75,9 @@ The `Tray` module emits the following events:
 
 Emitted when the tray icon is clicked.
 
-#### Event: 'right-click' *macOS* *Windows*
+#### Event: 'right-click' _macOS_ _Windows_
 
-* `event` Event 
+* `event` Event
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -86,9 +86,9 @@ Emitted when the tray icon is clicked.
 
 Emitted when the tray icon is right clicked.
 
-#### Event: 'double-click' *macOS* *Windows*
+#### Event: 'double-click' _macOS_ _Windows_
 
-* `event` Event 
+* `event` Event
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -97,51 +97,51 @@ Emitted when the tray icon is right clicked.
 
 Emitted when the tray icon is double clicked.
 
-#### Event: 'balloon-show' *Windows*
+#### Event: 'balloon-show' _Windows_
 
 Emitted when the tray balloon shows.
 
-#### Event: 'balloon-click' *Windows*
+#### Event: 'balloon-click' _Windows_
 
 Emitted when the tray balloon is clicked.
 
-#### Event: 'balloon-closed' *Windows*
+#### Event: 'balloon-closed' _Windows_
 
 Emitted when the tray balloon is closed because of timeout or user manually closes it.
 
-#### Event: 'drop' *macOS*
+#### Event: 'drop' _macOS_
 
 Emitted when any dragged items are dropped on the tray icon.
 
-#### Event: 'drop-files' *macOS*
+#### Event: 'drop-files' _macOS_
 
 * `event` Event
 * `files` String[] - The paths of the dropped files.
 
 Emitted when dragged files are dropped in the tray icon.
 
-#### Event: 'drop-text' *macOS*
+#### Event: 'drop-text' _macOS_
 
 * `event` Event
 * `text` String - the dropped text string
 
 Emitted when dragged text is dropped in the tray icon.
 
-#### Event: 'drag-enter' *macOS*
+#### Event: 'drag-enter' _macOS_
 
 Emitted when a drag operation enters the tray icon.
 
-#### Event: 'drag-leave' *macOS*
+#### Event: 'drag-leave' _macOS_
 
 Emitted when a drag operation exits the tray icon.
 
-#### Event: 'drag-end' *macOS*
+#### Event: 'drag-end' _macOS_
 
 Emitted when a drag operation ends on the tray or ends at another location.
 
-#### Event: 'mouse-enter' *macOS*
+#### Event: 'mouse-enter' _macOS_
 
-* `event` Event 
+* `event` Event
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -150,9 +150,9 @@ Emitted when a drag operation ends on the tray or ends at another location.
 
 Emitted when the mouse enters the tray icon.
 
-#### Event: 'mouse-leave' *macOS*
+#### Event: 'mouse-leave' _macOS_
 
-* `event` Event 
+* `event` Event
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -175,7 +175,7 @@ Destroys the tray icon immediately.
 
 Sets the `image` associated with this tray icon.
 
-#### `tray.setPressedImage(image)` *macOS*
+#### `tray.setPressedImage(image)` _macOS_
 
 * `image` [NativeImage](native-image.md)
 
@@ -187,15 +187,15 @@ Sets the `image` associated with this tray icon when pressed on macOS.
 
 Sets the hover text for this tray icon.
 
-#### `tray.setTitle(title)` *macOS*
+#### `tray.setTitle(title)` _macOS_
 
 * `title` String
 
 Sets the title displayed aside of the tray icon in the status bar.
 
-#### `tray.setHighlightMode(mode)` *macOS*
+#### `tray.setHighlightMode(mode)` _macOS_
 
-* `mode` String - Highlight mode with one of the following values: 
+* `mode` String - Highlight mode with one of the following values:
   * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
   * `always` - Always highlight the tray icon.
   * `never` - Never highlight the tray icon.
@@ -221,16 +221,16 @@ win.on('hide', () => {
 })
 ```
 
-#### `tray.displayBalloon(options)` *Windows*
+#### `tray.displayBalloon(options)` _Windows_
 
-* `options` Object 
+* `options` Object
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
   * `title` String - (optional)
   * `content` String - (optional)
 
 Displays a tray balloon.
 
-#### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
+#### `tray.popUpContextMenu([menu, position])` _macOS_ _Windows_
 
 * `menu` Menu (optional)
 * `position` [Point](structures/point.md) (optional) - The pop up position.
@@ -245,7 +245,7 @@ The `position` is only available on Windows, and it is (0, 0) by default.
 
 Sets the context menu for this icon.
 
-#### `tray.getBounds()` *macOS* *Windows*
+#### `tray.getBounds()` _macOS_ _Windows_
 
 Returns [`Rectangle`](structures/rectangle.md)
 
@@ -254,3 +254,5 @@ The `bounds` of this tray icon as `Object`.
 #### `tray.isDestroyed()`
 
 Returns `Boolean` - Whether the tray icon is destroyed.
+
+[event-emitter]: https://nodejs.org/api/events.html#events_class_eventemitter
