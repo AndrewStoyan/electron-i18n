@@ -1,6 +1,6 @@
 # desktopCapturer
 
-> Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`] API.
+> Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`][] API.
 
 Process: [Renderer](../glossary.md#renderer-process)
 
@@ -41,9 +41,9 @@ function handleError (e) {
 }
 ```
 
-To capture video from a source provided by `desktopCapturer` the constraints passed to [`navigator.mediaDevices.getUserMedia`] must include `chromeMediaSource: 'desktop'`, and `audio: false`.
+To capture video from a source provided by `desktopCapturer` the constraints passed to [`navigator.mediaDevices.getUserMedia`][] must include `chromeMediaSource: 'desktop'`, and `audio: false`.
 
-To capture both audio and video from the entire desktop the constraints passed to [`navigator.mediaDevices.getUserMedia`] must include `chromeMediaSource: 'desktop'`, for both `audio` and `video`, but should not include a `chromeMediaSourceId` constraint.
+To capture both audio and video from the entire desktop the constraints passed to [`navigator.mediaDevices.getUserMedia`][] must include `chromeMediaSource: 'desktop'`, for both `audio` and `video`, but should not include a `chromeMediaSourceId` constraint.
 
 ```javascript
 const constraints = {
@@ -66,13 +66,15 @@ The `desktopCapturer` module has the following methods:
 
 ### `desktopCapturer.getSources(options, callback)`
 
-* `options` Object 
+* `options` Object
   * `types` String[] - An array of Strings that lists the types of desktop sources to be captured, available types are `screen` and `window`.
   * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`.
-* `callback` Function 
+* `callback` Function
   * `error` Error
   * `sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
 
 Starts gathering information about all available desktop media sources, and calls `callback(error, sources)` when finished.
 
 `sources` is an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
+
+[`navigator.mediaDevices.getUserMedia`]: https://developer.mozilla.org/en/docs/Web/API/MediaDevices/getUserMedia
