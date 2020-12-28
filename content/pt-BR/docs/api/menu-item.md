@@ -2,14 +2,14 @@
 
 > Add items to native application menus and context menus.
 
-Processo: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 See [`Menu`](menu.md) for examples.
 
 ### `new MenuItem(options)`
 
-* `options` Object 
-  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
+* `options` Object
+  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked.
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
     * `event` Event
