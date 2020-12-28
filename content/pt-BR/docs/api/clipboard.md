@@ -77,7 +77,7 @@ Returns `String` - The content in the clipboard as RTF.
 
 Writes the `text` into the clipboard in RTF.
 
-### `clipboard.readBookmark()` *macOS* *Windows*
+### `clipboard.readBookmark()` _macOS_ _Windows_
 
 Returns `Object`:
 
@@ -86,7 +86,7 @@ Returns `Object`:
 
 Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
 
-### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
+### `clipboard.writeBookmark(title, url[, type])` _macOS_ _Windows_
 
 * `title` String
 * `url` String
@@ -103,11 +103,11 @@ clipboard.write({
 })
 ```
 
-### `clipboard.readFindText()` *macOS*
+### `clipboard.readFindText()` _macOS_
 
 Returns `String` - The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
 
-### `clipboard.writeFindText(text)` *macOS*
+### `clipboard.writeFindText(text)` _macOS_
 
 * `text` String
 
@@ -125,7 +125,7 @@ Clears the clipboard content.
 
 Returns `String[]` - An array of supported formats for the clipboard `type`.
 
-### `clipboard.has(format[, type])` *Experimental*
+### `clipboard.has(format[, type])` _Experimental_
 
 * `format` String
 * `type` String (optional)
@@ -137,19 +137,19 @@ const {clipboard} = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
-### `clipboard.read(format)` *Experimental*
+### `clipboard.read(format)` _Experimental_
 
 * `format` String
 
 Returns `String` - Reads `format` type from the clipboard.
 
-### `clipboard.readBuffer(format)` *Experimental*
+### `clipboard.readBuffer(format)` _Experimental_
 
 * `format` String
 
 Returns `Buffer` - Reads `format` type from the clipboard.
 
-### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
+### `clipboard.writeBuffer(format, buffer[, type])` _Experimental_
 
 * `format` String
 * `buffer` Buffer
@@ -159,7 +159,7 @@ Writes the `buffer` into the clipboard as `format`.
 
 ### `clipboard.write(data[, type])`
 
-* `data` Object 
+* `data` Object
   * `text` String (optional)
   * `html` String (optional)
   * `image` [NativeImage](native-image.md) (optional)
@@ -171,5 +171,4 @@ Writes the `buffer` into the clipboard as `format`.
 const {clipboard} = require('electron')
 clipboard.write({text: 'test', html: '<b>test</b>'})
 ```
-
 Writes `data` to the clipboard.
