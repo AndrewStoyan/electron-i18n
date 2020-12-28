@@ -1,10 +1,10 @@
-# Empacotamento de Aplicativos
+# Application Packaging
 
-To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar](https://github.com/electron/asar) archive with little changes to your source code.
+To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar][asar] archive with little changes to your source code.
 
 ## Generating `asar` Archive
 
-An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+An [asar][asar] archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
 
 Steps to package your app into an `asar` archive:
 
@@ -145,3 +145,5 @@ $ asar pack app app.asar --unpack *.node
 ```
 
 After running the command, apart from the `app.asar`, there is also an `app.asar.unpacked` folder generated which contains the unpacked files, you should copy it together with `app.asar` when shipping it to users.
+
+[asar]: https://github.com/electron/asar
