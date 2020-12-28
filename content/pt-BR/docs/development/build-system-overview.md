@@ -1,8 +1,8 @@
-# Construir Resumo do Sistema
+# Build System Overview
 
-Electron uses [gyp](https://gyp.gsrc.io/) for project generation and [ninja](https://ninja-build.org/) for building. Configurações do projeto podem ser encontradas em arquivos `.gyp` e `.gypi`.
+Electron uses [gyp](https://gyp.gsrc.io/) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gyp` and `.gypi` files.
 
-## Arquivos Gyp
+## Gyp Files
 
 Following `gyp` files contain the main rules for building Electron:
 
@@ -42,21 +42,21 @@ Unlike most projects that use `Release` and `Debug` as target names, Electron us
 
 This only affects developers, if you are just building Electron for rebranding you are not affected.
 
-## Testes
+## Tests
 
-Teste suas modificações de acordo com o projeto, usando o estilo de codificação:
+Test your changes conform to the project coding style using:
 
 ```bash
 $ npm run lint
 ```
 
-Teste a funcionalidade usando:
+Test functionality using:
 
 ```bash
 $ npm test
 ```
 
-Sempre que fizer alterações no seu código Electron, terá de reconstruir antes de rodar os testes:
+Whenever you make changes to Electron source code, you'll need to re-run the build before the tests:
 
 ```bash
 $ npm run build && npm test
