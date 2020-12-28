@@ -1,24 +1,24 @@
-# Função `window.open`
+# `window.open` Function
 
-> Abri uma nova janela e carregar uma URL.
+> Open a new window and load a URL.
 
-Quando `window.open` é chamada para criar uma nova janela em uma página web, uma nova instância de `BrowserWindow` será criada para a `url` e um proxy será retornado para `window.open`, deixando o controle sobre ele limitado.
+When `window.open` is called to create a new window in a web page, a new instance of `BrowserWindow` will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
 
-O proxy é limitado a funcionalidade padrão implementada para ser compatível com páginas web tradicionais. Para ter o controle total da nova janela, você deve criar um `BrowserWindow` diretamente.
+The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
 
-O recém-criado `BrowserWindow` herdará as opções da janela pai por padrão. Para substituir as opções herdadas, você pode defini-las na string `features`.
+The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
 
 ### `window.open(url[, frameName][, features])`
 
 * `url` String
-* `frameName` String (opcional)
-* `features` String (opcional)
+* `frameName` String (optional)
+* `features` String (optional)
 
-Retorna [`BrowserWindowProxy`](browser-window-proxy.md) - Cria uma nova janela e retorna uma instância da classe `BrowserWindowProxy`.
+Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window and returns an instance of `BrowserWindowProxy` class.
 
-A string `features` segue o formato padrão do navegador, mas cada feature deve ser um campo das opções de `BrowserWindow`.
+The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options.
 
-**Notas:**
+**Notes:**
 
 * Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
 * Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
