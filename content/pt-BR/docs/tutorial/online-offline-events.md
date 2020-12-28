@@ -1,8 +1,8 @@
-# Detecção de Evento Online/Offline
+# Online/Offline Event Detection
 
 Online and offline event detection can be implemented in the renderer process using standard HTML5 APIs, as shown in the following example.
 
-*main.js*
+_main.js_
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -15,7 +15,7 @@ app.on('ready', () => {
 })
 ```
 
-*online-status.html*
+_online-status.html_
 
 ```html
 <!DOCTYPE html>
@@ -37,7 +37,7 @@ app.on('ready', () => {
 
 There may be instances where you want to respond to these events in the main process as well. The main process however does not have a `navigator` object and thus cannot detect these events directly. Using Electron's inter-process communication utilities, the events can be forwarded to the main process and handled as needed, as shown in the following example.
 
-*main.js*
+_main.js_
 
 ```javascript
 const {app, BrowserWindow, ipcMain} = require('electron')
@@ -53,7 +53,7 @@ ipcMain.on('online-status-changed', (event, status) => {
 })
 ```
 
-*online-status.html*
+_online-status.html_
 
 ```html
 <!DOCTYPE html>
