@@ -1,19 +1,19 @@
-# Objeto NotificationAction
+# NotificationAction Object
 
-* `type` String - o tipo de ação, pode ser `button`.
-* `text` String - (opcional) O label para esta ação.
+* `type` String - The type of action, can be `button`.
+* `text` String - (optional) The label for the given action.
 
-## Plataforma / Suporte para Action
+## Platform / Action Support
 
-| Action Type | Plataforma com suporte | Utilização do `text`              | `text` padrão | Limitações                                                                                                                                                           |
-| ----------- | ---------------------- | --------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button`    | macOS                  | Utilizado como label para o botão | "Show"        | Máximo de um botão, se múltiplos são fornecidos, apenas o último é utilizado. Essa ação também é incompatível com `hasReply` e será ignorada se `hasReply` é `true`. |
+| Action Type | Platform Support | Usage of `text`                  | Default `text` | Limitations                                                                                                                                                          |
+| ----------- | ---------------- | -------------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button`    | macOS            | Used as the label for the button | "Show"         | Maximum of one button, if multiple are provided only the last is used.  This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
-### Suporte para o botão no macOS
+### Button support on macOS
 
-Para que os botões extra de notificações funcionem no macOS, sua aplicação deverá atender aos seguintes critérios:
+In order for extra notification buttons to work on macOS your app must meet the following criteria.
 
-* Aplicação é assinada
-* Aplicação tem seu `NSUserNotificationAlertStyle` definido como `alert` no arquivo `info.plist`.
+* App is signed
+* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `info.plist`.
 
-Se qualquer destes requisitos não forem atendidos, o botão não irá aparecer.
+If either of these requirements are not met the button simply won't appear.
