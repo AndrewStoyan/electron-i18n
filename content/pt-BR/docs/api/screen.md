@@ -55,7 +55,7 @@ The `screen` module emits the following events:
 
 ### Event: 'display-added'
 
-Retorna:
+Returns:
 
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
@@ -64,7 +64,7 @@ Emitted when `newDisplay` has been added.
 
 ### Event: 'display-removed'
 
-Retorna:
+Returns:
 
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
@@ -73,7 +73,7 @@ Emitted when `oldDisplay` has been removed.
 
 ### Event: 'display-metrics-changed'
 
-Retorna:
+Returns:
 
 * `event` Event
 * `display` [Display](structures/display.md)
@@ -91,7 +91,7 @@ Returns [`Point`](structures/point.md)
 
 The current absolute position of the mouse pointer.
 
-### `screen.getMenuBarHeight()` *macOS*
+### `screen.getMenuBarHeight()` _macOS_
 
 Returns `Integer` - The height of the menu bar in pixels.
 
