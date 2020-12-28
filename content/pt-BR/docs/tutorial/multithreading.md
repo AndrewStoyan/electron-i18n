@@ -1,6 +1,6 @@
 # Multithreading
 
-With [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers), it is possible to run JavaScript in OS-level threads.
+With [Web Workers][web-workers], it is possible to run JavaScript in OS-level threads.
 
 ## Multi-threaded Node.js
 
@@ -34,3 +34,5 @@ process.dlopen = () => {
 }
 let worker = new Worker('script.js')
 ```
+
+[web-workers]: https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers
