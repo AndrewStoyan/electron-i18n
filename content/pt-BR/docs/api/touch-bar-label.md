@@ -4,9 +4,9 @@
 
 Process: [Main](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarLabel(options)` *Experimental*
+### `new TouchBarLabel(options)` _Experimental_
 
-* `options` Object 
+* `options` Object
   * `label` String (optional) - Text to display.
   * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
 
