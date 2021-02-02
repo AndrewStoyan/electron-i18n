@@ -1,5 +1,6 @@
 ## Class: Menu
 
+
 > Create native application menus and context menus.
 
 Process: [Main](../glossary.md#main-process)
@@ -28,7 +29,7 @@ Returns `Menu` - The application menu, if set, or `null`, if not set.
 
 **Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
-#### `Menu.sendActionToFirstResponder(action)` *macOS*
+#### `Menu.sendActionToFirstResponder(action)` _macOS_
 
 * `action` String
 
@@ -53,11 +54,11 @@ The `menu` object has the following instance methods:
 #### `menu.popup([browserWindow, options])`
 
 * `browserWindow` BrowserWindow (optional) - Default is the focused window.
-* `options` Object (optional) 
+* `options` Object (optional)
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
   * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
-  * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `positioningItem` Number (optional) _macOS_ - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
 
 Pops up this menu as a context menu in the `browserWindow`.
 
@@ -212,6 +213,7 @@ window.addEventListener('contextmenu', (e) => {
 </script>
 ```
 
+
 ## Notes on macOS Application Menu
 
 macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
@@ -230,11 +232,11 @@ macOS has provided standard actions for some menu items, like `About xxx`, `Hide
 
 ### Main Menu's Name
 
-On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
+On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files][AboutInformationPropertyListFiles] for more information.
 
 ## Setting Menu for Specific Browser Window (*Linux* *Windows*)
 
-The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
+The [`setMenu` method][setMenu] of browser windows can set the menu of certain browser windows.
 
 ## Menu Item Position
 
@@ -264,12 +266,13 @@ Template:
 
 Menu:
 
-    <br />- 1
-    - 2
-    - 3
-    - 4
-    - 5
-    
+```
+- 1
+- 2
+- 3
+- 4
+- 5
+```
 
 Template:
 
@@ -286,11 +289,16 @@ Template:
 
 Menu:
 
-    <br />- ---
-    - a
-    - b
-    - c
-    - ---
-    - 1
-    - 2
-    - 3
+```
+- ---
+- a
+- b
+- c
+- ---
+- 1
+- 2
+- 3
+```
+
+[AboutInformationPropertyListFiles]: https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html
+[setMenu]: https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows
