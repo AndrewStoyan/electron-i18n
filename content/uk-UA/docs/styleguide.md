@@ -6,34 +6,34 @@
 
 * Кожна сторінка має мати єдиний заголовок рівня `#` у верхній частині.
 * Розділи цієї сторінки мають мати заголовки рівня `##`.
-* Підрозділи мають збільшувати кількість `#` згідно глибини вкладеності.
-* Всі слова в заголовку сторінки мають писатися з великої літери, за винятком сполучників таких як "з" чи "і".
-* Тільки перше слово заголовку розділу має писатися з великої літери.
+* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
+* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
+* Only the first word of a chapter title must be capitalized.
 
 Для прикладу `Швидкий старт`:
 
 ```markdown
-# Швидкий Старт
+# Quick Start
 
 ...
 
-## Загальний процес
+## Main process
 
 ...
 
-## Процес візуалізації
+## Renderer process
 
 ...
 
-## Запуск додатку
+## Run your app
 
 ...
 
-### Запустити як дистрибутив
+### Run as a distribution
 
 ...
 
-### Завантажити вручну бібліотеку Electron
+### Manually downloaded Electron binary
 
 ...
 ```
@@ -90,15 +90,15 @@
 
 ### Класи
 
-* API класи або класи, які є частиною модулів, повинні бути перераховані в розділі `## Клас: TheClassName`.
-* Одна сторінка може мати кілька класів.
+* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
+* One page can have multiple classes.
 * Конструктори, повинні бути перераховані на `###` рівні.
 * [Статичні методи](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) мають бути перераховані в розділі `### Статичні Методи`.
 * [Методи об'єкта класу](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) повинні біти перераховані в главі `### Методи Екземпляру`.
-* Опис всіх методів, що повертають значення, повинен починатися з "Повертає `[TYPE]` - Опис повернення" 
+* Опис всіх методів, що повертають значення, повинен починатися з "Повертає `[TYPE]` - Опис повернення"
   * Якщо метод повертає `Object`, його структура може бути визначена з використанням двокрапки потім з нового рядка невпорядкований список властивостей у стилі параметрів функції.
 * Події об'єкта класу повинні бути перераховані в розділі `### Події Еекземпляру`.
-* Властивості об'єкта класу повинні бути перераховані в `### Instance Properties` розділі. 
+* Властивості об'єкта класу повинні бути перераховані в `### Instance Properties` розділі.
   * Власстивості об'єкта класу мають починатися з "A [тип властивості] ..."
 
 Для прикладу `Session` та `Cookies` класи:
@@ -142,24 +142,25 @@
 ```markdown
 ### `objectName.methodName(required[, optional]))`
 
-* `required` String - Опис параметру.
-* `optional` Integer (optional) - Інший опис параметру.
+* `required` String - A parameter description.
+* `optional` Integer (optional) - Another parameter description.
 
 ...
 ```
 
 Заголовок може мати рівні `###` чи `####` в залежності від того, чи це метод модуля чи класу.
 
-Для модулів, `objectName` це ім'я модуля. Для класів це повинно бути імена екземплярів класу і не повинні бути такими ж як і ім'я модулів.
+For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
 
 Наприклад, методи класу `Session` у модулі `session` повинні використовувати `ses` як `objectName`.
 
 Необов'язкові аргументи мають бути зазначені в квадратні дужки `[]`, що оточують необов'язковий аргумент, а також кома, якщо за необов'язковим аргументом слідує ще один аргумент:
 
-    required[, optional]
-    
+```
+required[, optional]
+```
 
-Нижче методу оголошується більш детальна інформація про кожний аргумент. Тип аргументу має бути зазначеним із загальних типів:
+Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
@@ -168,7 +169,7 @@
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Чи нестандартний тип як Electron's [`WebContent`](api/web-contents.md)
 
-Якщо аргумент або метод є унікальним для певних платформ, тоді ці платформи позначаються списком які розділені пробілами та виділені курсивом після типу даних (datatype). Значення можуть бути `macOS`, `Windows`, or `Linux`.
+If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
 
 ```markdown
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
@@ -185,7 +186,7 @@
 ```markdown
 ### Event: 'wake-up'
 
-Повертає:
+Returns:
 
 * `time` String
 
@@ -204,7 +205,6 @@
 ### session.defaultSession
 
 ...
-
 ```
 
 Назва повинна починатися с `###` або `####`-рівня в залежності від того, це властивість модуля чи класу.
@@ -217,7 +217,7 @@
 
 * Створіть піддиректорію з назвою абревіатури мови.
 * Перекладіть файли.
-* Обновіть `README.md` вашою мовною папкою, щоб вказати файли що ви перекладали.
-* Додайте посилання на директорію з перекладами в головному [README](https://github.com/electron/electron#documentation-translations) Electron.
+* Update the `README.md` within your language directory to link to the files you have translated.
+* Add a link to your translation directory on the main Electron [README](https://github.com/electron/electron#documentation-translations).
 
 Зауважте, що файли в `docs-translations` мають містити тільки переклади, оригінальні англійські файли не повинні копіюватися туди.
