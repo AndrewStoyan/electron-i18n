@@ -159,7 +159,7 @@ Writes the `buffer` into the clipboard as `format`.
 
 ### `clipboard.write(data[, type])`
 
-* `data` Object 
+* `data` Object
   * `text` String (optional)
   * `html` String (optional)
   * `image` [NativeImage](native-image.md) (optional)
@@ -171,5 +171,4 @@ Writes the `buffer` into the clipboard as `format`.
 const {clipboard} = require('electron')
 clipboard.write({text: 'test', html: '<b>test</b>'})
 ```
-
 Записывает `data` в буфер обмена.
