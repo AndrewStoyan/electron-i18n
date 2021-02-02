@@ -130,20 +130,27 @@ The default building configuration is targeted for major desktop Linux distribut
 
 ### Building `libchromiumcontent` locally
 
-To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps: 1. Install [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install) 2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies) 3. Fetch the git submodules:
+To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally.  To do so, follow these steps: 1.
+  1. bash $ ./script/bootstrap.py -v --build_libchromiumcontent
+  2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies) 3.
+  3. Fetch the git submodules:
 
-    bash
-      $ git submodule update --init --recursive 4. Copy the .gclient config file
+  ```bash
+  bash
+  $ git submodule update --init --recursive 4.
+  ```
+  4. Copy the .gclient config file bash $ cp vendor/libchromiumcontent/.gclient .
 
-    bash
-      $ cp vendor/libchromiumcontent/.gclient . 5. Pass the 
+  ```bash
+  $ cp vendor/libchromiumcontent/.gclient .
+  ```
+  5. The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.
+
+  ```bash
+  $ ./script/bootstrap.py -v --build_libchromiumcontent
+  ```
 
 `--build_libchromiumcontent` switch to `bootstrap.py` script:
-
-    bash
-      $ ./script/bootstrap.py -v --build_libchromiumcontent
-
-Note that by default the `shared_library` configuration is not built, so you can only build `Release` version of Electron if you use this mode:
 
 ```bash
 $ ./script/build.py -c R
@@ -189,4 +196,4 @@ Apart from `CC` and `CXX`, you can also set following environment variables to c
 * `CXX_host`
 * `LDFLAGS`
 
-The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.
+Apart from `CC` and `CXX`, you can also set following environment variables to custom the building configurations:
