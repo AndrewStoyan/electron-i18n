@@ -56,7 +56,7 @@ $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 
 Инструктирует Electron не использовать proxy сервер для списка хостов, разделённых точкой с запятой. Данные параметр используется в связке с `--proxy-server`.
 
-Например:
+For example:
 
 ```javascript
 const {app} = require('electron')
@@ -77,7 +77,7 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 Список `правил`, разделённых точкой с запятой, которые контролируют как сопоставляются имена хостов.
 
-Например:
+For example:
 
 * `MAP * 127.0.0.1` Все имена хостов будут перенаправлены на 127.0.0.1
 * `MAP *.google.com proxy` Заставляет все google.com поддомены обращаться к "proxy".
@@ -96,8 +96,9 @@ A comma-separated list of servers for which integrated authentication is enabled
 
 For example:
 
-    --auth-server-whitelist='*example.com, *foobar.com, *baz'
-    
+```
+--auth-server-whitelist='*example.com, *foobar.com, *baz'
+```
 
 then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
 
