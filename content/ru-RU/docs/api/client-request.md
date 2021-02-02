@@ -8,7 +8,7 @@
 
 ### `new ClientRequest(options)`
 
-* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties: 
+* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties:
   * `method` String (optional) - The HTTP request method. Defaults to the GET method.
   * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Object (optional) - The [`Session`](session.md) instance with which the request is associated.
@@ -46,13 +46,13 @@ const request = net.request({
 
 Возвращает:
 
-* `authInfo` Object 
+* `authInfo` Object
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Function
   * `username` String
   * `password` String
 
@@ -68,7 +68,6 @@ request.on('login', (authInfo, callback) => {
   callback('username', 'password')
 })
 ```
-
 Providing empty credentials will cancel the request and report an authentication error on the response object:
 
 ```JavaScript
@@ -102,6 +101,7 @@ Emitted when the `net` module fails to issue a network request. Typically when t
 #### Event: 'close'
 
 Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
+
 
 #### Event: 'redirect'
 
