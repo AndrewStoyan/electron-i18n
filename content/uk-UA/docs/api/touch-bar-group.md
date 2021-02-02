@@ -4,7 +4,7 @@
 
 Process: [Main](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarGroup(options)` *Experimental*
+### `new TouchBarGroup(options)` _Experimental_
 
-* `options` Object 
+* `options` Object
   * `items` [TouchBar](touch-bar.md) - Items to display as a group.
