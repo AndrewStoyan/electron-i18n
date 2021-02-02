@@ -51,7 +51,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 * `method` String - имя метода должно быть одним из методов, определенным удаленным протоколом отладки.
 * `commandParams` Object (опционально) - JSON объект с параметрами запроса.
-* `callback` Function (опционально) - ответ 
+* `callback` Function (опционально) - ответ
   * `error` Object - сообщение об ошибке, указывающее на сбой команды.
   * `result` Any - возвращает ответ, определяемый атрибутом 'returns' описание команды в протоколе удаленной отладки.
 
