@@ -49,7 +49,7 @@ app.on('ready', () => {
 })
 ```
 
-## Події (Events)
+## Events
 
 The `screen` module emits the following events:
 
@@ -81,7 +81,7 @@ Returns:
 
 Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
 
-## Методи
+## Methods
 
 The `screen` module has the following methods:
 
@@ -91,7 +91,7 @@ Returns [`Point`](structures/point.md)
 
 The current absolute position of the mouse pointer.
 
-### `screen.getMenuBarHeight()` *macOS*
+### `screen.getMenuBarHeight()` _macOS_
 
 Returns `Integer` - The height of the menu bar in pixels.
 
