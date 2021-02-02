@@ -8,7 +8,7 @@ The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api
 
 ## Sending Messages
 
-It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+It is also possible to send messages from the main process to the renderer process, see [webContents.send][web-contents-send] for more information.
 
 * When sending a message, the event name is the `channel`.
 * To reply to a synchronous message, you need to set `event.returnValue`.
@@ -41,7 +41,7 @@ ipcRenderer.on('asynchronous-reply', (event, arg) => {
 ipcRenderer.send('asynchronous-message', 'ping')
 ```
 
-## Методи
+## Methods
 
 The `ipcMain` module has the following method to listen for events:
 
@@ -82,4 +82,6 @@ Set this to the value to be returned in a synchronous message.
 
 ### `event.sender`
 
-Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send][web-contents-send] for more information.
+
+[web-contents-send]: web-contents.md#webcontentssendchannel-arg1-arg2-
