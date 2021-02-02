@@ -6,7 +6,7 @@
 
 ASAR это Atom Shell Archive Format. [Asar](https://github.com/electron/asar) это простой архив `tar`-like формата, который содержит в себе все файлы проекта. Electron может работать с файлами в архиве без распаковки оного.
 
-ASAR был создан для повышения производительности в среде Windows
+ASAR был создан для повышения производительности в среде Windows TODO
 
 ### Brightray
 
