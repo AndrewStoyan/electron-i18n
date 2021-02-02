@@ -6,11 +6,11 @@ This doesn't mean Electron is a JavaScript binding to graphical user interface (
 
 ### Main Process
 
-In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages.
+In Electron, the process that runs `package.json`'s `main` script is called __the main process__. The script that runs in the main process can display a GUI by creating web pages.
 
 ### Renderer Process
 
-Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
+Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called __the renderer process__.
 
 In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
@@ -22,7 +22,7 @@ The main process manages all web pages and their corresponding renderer processe
 
 In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
 
-In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages][share-data].
 
 ## Write your First Electron App
 
@@ -149,8 +149,9 @@ $ ./node_modules/.bin/electron .
 
 #### Windows
 
-    $ .\node_modules\.bin\electron .
-    
+```
+$ .\node_modules\.bin\electron .
+```
 
 ### Manually Downloaded Electron Binary
 
@@ -170,8 +171,9 @@ $ ./electron/electron your-app/
 
 #### Windows
 
-    $ .\electron\electron.exe your-app\
-    
+```
+$ .\electron\electron.exe your-app\
+```
 
 `Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
 
@@ -197,3 +199,5 @@ $ npm start
 ```
 
 For more example apps, see the [list of boilerplates](https://electron.atom.io/community/#boilerplates) created by the awesome electron community.
+
+[share-data]: ../faq.md#how-to-share-data-between-web-pages
