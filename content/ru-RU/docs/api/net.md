@@ -34,6 +34,10 @@ app.on('ready', () => {
   })
   request.end()
 })
+    })
+  })
+  request.end()
+})
 ```
 
 By the way, it is almost identical to how you would normally use the [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) modules of Node.js
