@@ -18,8 +18,9 @@ To compile any existing Electron app, ensure that you have the following require
 
 Then, go and install the `electron-windows-store` CLI:
 
-    npm install -g electron-windows-store
-    
+```
+npm install -g electron-windows-store
+```
 
 ## Step 1: Package Your Electron Application
 
@@ -27,40 +28,50 @@ Package the application using [electron-packager](https://github.com/electron-us
 
 The output should look roughly like this:
 
-    ├── Ghost.exe
-    ├── LICENSE
-    ├── content_resources_200_percent.pak
-    ├── content_shell.pak
-    ├── d3dcompiler_47.dll
-    ├── ffmpeg.dll
-    ├── icudtl.dat
-    ├── libEGL.dll
-    ├── libGLESv2.dll
-    ├── locales
-    │   ├── am.pak
-    │   ├── ar.pak
-    │   ├── [...]
-    ├── natives_blob.bin
-    ├── node.dll
-    ├── resources
-    │   ├── app
-    │   └── atom.asar
-    ├── snapshot_blob.bin
-    ├── squirrel.exe
-    └── ui_resources_200_percent.pak
-    
+```
+├── Ghost.exe
+├── LICENSE
+├── content_resources_200_percent.pak
+├── content_shell.pak
+├── d3dcompiler_47.dll
+├── ffmpeg.dll
+├── icudtl.dat
+├── libEGL.dll
+├── libGLESv2.dll
+├── locales
+│   ├── am.pak
+│   ├── ar.pak
+│   ├── [...]
+├── natives_blob.bin
+├── node.dll
+├── resources
+│   ├── app
+│   └── atom.asar
+├── snapshot_blob.bin
+├── squirrel.exe
+└── ui_resources_200_percent.pak
+├── natives_blob.bin
+├── node.dll
+├── resources
+│   ├── app
+│   └── atom.asar
+├── snapshot_blob.bin
+├── squirrel.exe
+└── ui_resources_200_percent.pak
+```
 
 ## Step 2: Running electron-windows-store
 
 From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
 
-    electron-windows-store `
-        --input-directory C:\myelectronapp `
-        --output-directory C:\output\myelectronapp `
-        --flatten true `
-        --package-version 1.0.0.0 `
-        --package-name myelectronapp
-    
+```
+electron-windows-store `
+    --input-directory C:\myelectronapp `
+    --output-directory C:\output\myelectronapp `
+    --flatten true `
+    --package-version 1.0.0.0 `
+    --package-name myelectronapp
+```
 
 Once executed, the tool goes to work: It accepts your Electron app as an input, flattening the `node_modules`. Then, it archives your application as `app.zip`. Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
 
@@ -75,7 +86,6 @@ In opposition to traditional UWP apps, packaged apps currently need to undergo a
 Another important limitation is that the compiled AppX package still contains a win32 executable - and will therefore not run on Xbox, HoloLens, or Phones.
 
 ## Optional: Add UWP Features using a BackgroundTask
-
 You can pair your Electron app up with an invisible UWP background task that gets to make full use of Windows 10 features - like push notifications, Cortana integration, or live tiles.
 
 To check out how an Electron app that uses a background task to send toast notifications and live tiles, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
