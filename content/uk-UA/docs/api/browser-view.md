@@ -29,9 +29,9 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electron.atom.io')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `new BrowserView([options])` _Experimental_
 
-* `options` Object (optional) 
+* `options` Object (optional)
   * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
 
 ### Static Methods
@@ -46,11 +46,11 @@ Returns `BrowserView` - The view with the given `id`.
 
 Objects created with `new BrowserView` have the following properties:
 
-#### `view.webContents` *Experimental*
+#### `view.webContents` _Experimental_
 
 A [`WebContents`](web-contents.md) object owned by this view.
 
-#### `view.id` *Experimental*
+#### `view.id` _Experimental_
 
 A `Integer` representing the unique ID of the view.
 
@@ -58,18 +58,18 @@ A `Integer` representing the unique ID of the view.
 
 Objects created with `new BrowserView` have the following instance methods:
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `view.setAutoResize(options)` _Experimental_
 
-* `options` Object 
+* `options` Object
   * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *Experimental*
+#### `view.setBounds(bounds)` _Experimental_
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 Resizes and moves the view to the supplied bounds relative to the window.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` _Experimental_
 
 * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
