@@ -12,11 +12,11 @@ See [Notifications](notifications.md)
 
 Windows and macOS provide easy access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
 
-**JumpList:**
+__JumpList:__
 
 ![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**Application dock menu:**
+__Application dock menu:__
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
@@ -36,7 +36,7 @@ app.clearRecentDocuments()
 
 ### Windows Notes
 
-In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
+In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration][app-registration].
 
 When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
 
@@ -48,7 +48,7 @@ When a file is requested from the recent documents menu, the `open-file` event o
 
 macOS enables developers to specify a custom menu for the dock, which usually contains some shortcuts for commonly used features of your application:
 
-**Dock menu of Terminal.app:**
+__Dock menu of Terminal.app:__
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png" height="354" width="341" />
 
@@ -78,7 +78,7 @@ On Windows you can specify custom actions in the `Tasks` category of JumpList, a
 > 
 > It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
 
-**Tasks of Internet Explorer:**
+__Tasks of Internet Explorer:__
 
 ![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
 
@@ -119,7 +119,7 @@ From MSDN, it's illustrated:
 > 
 > For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
 
-**Thumbnail toolbar of Windows Media Player:**
+__Thumbnail toolbar of Windows Media Player:__
 
 ![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
@@ -161,7 +161,7 @@ win.setThumbarButtons([])
 
 In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
-**Launcher shortcuts of Audacious:**
+__Launcher shortcuts of Audacious:__
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
@@ -173,7 +173,7 @@ On macOS the progress bar will be displayed as a part of the dock icon.
 
 The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
 
-**Progress bar in taskbar button:**
+__Progress bar in taskbar button:__
 
 ![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
@@ -191,7 +191,7 @@ On Windows a taskbar button can use a small overlay to display application statu
 
 > Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
 
-**Overlay on taskbar button:**
+__Overlay on taskbar button:__
 
 ![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
@@ -226,7 +226,7 @@ On macOS a window can set its represented file, so the file's icon can show in t
 
 You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
 
-**Represented file popup menu:**
+__Represented file popup menu:__
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
@@ -266,3 +266,5 @@ ipcMain.on('ondragstart', (event, filePath) => {
   })
 })
 ```
+
+[app-registration]: http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx
