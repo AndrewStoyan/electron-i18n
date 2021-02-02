@@ -4,7 +4,7 @@
 
 Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
 
-Приклади:
+Examples:
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
@@ -15,9 +15,9 @@ Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module 
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // Реєстрація 'CommandOrControl+Y' слухача комбінації.
+  // Register a 'CommandOrControl+Y' shortcut listener.
   globalShortcut.register('CommandOrControl+Y', () => {
-    // Виконати коли комбінація натиснута.
+    // Do stuff when Y and either Command/Control is pressed.
   })
 })
 ```
@@ -30,34 +30,34 @@ Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas th
 
 The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
 
-## Доступні модифікатори
+## Available modifiers
 
-* `Command` (або скорочено `Cmd`)
-* `Control` (або скорочено `Ctrl`)
-* `CommandOrControl` (або скорочено `CmdOrCtrl`)
+* `Command` (or `Cmd` for short)
+* `Control` (or `Ctrl` for short)
+* `CommandOrControl` (or `CmdOrCtrl` for short)
 * `Alt`
 * `Option`
 * `AltGr`
 * `Shift`
 * `Super`
 
-## Доступні коди клавіш
+## Available key codes
 
-* Від `` до `9`
-* Від `A` до `Z`
-* Від `F1` до `F24`
-* Символи пунктуації як `~`, `!`, `@`, `#`, `$` і т.д.
+* `0` to `9`
+* `A` to `Z`
+* `F1` to `F24`
+* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Space`
 * `Tab`
 * `Backspace`
 * `Delete`
 * `Insert`
-* `Return` (або `Enter` як псевдонім)
-* `Up`, `Down`, `Left` та `Right`
-* `Home` та `End`
-* `PageUp` та `PageDown`
-* `Escape` (або скорочено `Esc`)
-* `VolumeUp`, `VolumeDown` та `VolumeMute`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` та `MediaPlayPause`
+* `Return` (or `Enter` as alias)
+* `Up`, `Down`, `Left` and `Right`
+* `Home` and `End`
+* `PageUp` and `PageDown`
+* `Escape` (or `Esc` for short)
+* `VolumeUp`, `VolumeDown` and `VolumeMute`
+* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
 * `PrintScreen`
