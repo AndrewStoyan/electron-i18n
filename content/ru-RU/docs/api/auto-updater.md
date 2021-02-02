@@ -8,10 +8,10 @@
 
 Вы можете быстро запустить серверный релиз мульти-платформы для распространения вашего приложения используя один из проектов:
 
-* [nuts](https://github.com/GitbookIO/nuts): * Смарт-релиз сервера для ваших приложений, используя GitHub как бэкэнд. Авто обновления с Squirrel (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *Полнофункциональный, резидентный серверный релиз для приложения Electron, совместимый с auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *Простой node.js сервер для Squirrel.Mac и Squirrel.Windows с использованием GitHub релизов*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *Простое PHP приложение для Squirrel.Windows, которая читает обновления из папки. Поддержка дельта обновлений.*
+- [nuts](https://github.com/GitbookIO/nuts): * Смарт-релиз сервера для ваших приложений, используя GitHub как бэкэнд. Авто обновления с Squirrel (Mac & Windows)*
+- [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *Полнофункциональный, резидентный серверный релиз для приложения Electron, совместимый с auto-updater*
+- [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *Простой node.js сервер для Squirrel.Mac и Squirrel.Windows с использованием GitHub релизов*
+- [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *Простое PHP приложение для Squirrel.Windows, которая читает обновления из папки. Поддержка дельта обновлений.*
 
 ## Платформа заметок
 
