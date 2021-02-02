@@ -4,7 +4,7 @@
 
 Під час роботи `npm install electron`, деякі користувачі іноді стикаються з помилками установки.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems.  The best resolution is to try switching networks, or just wait a bit and try installing again.
 
 You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
 
@@ -24,24 +24,24 @@ New features of Node.js are usually brought by V8 upgrades, since Electron is us
 
 ## Як обмінюватися даними між веб-сторінками?
 
-To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API][storage], [`localStorage`][local-storage], [`sessionStorage`][session-storage], and [IndexedDB][indexed-db].
 
 Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
 
 ```javascript
-// В головному процесі.
+// In the main process.
 global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// На сторнці 1.
+// In page 1.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// На сторінці 2.
+// In page 2.
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
@@ -51,8 +51,8 @@ This happens when the variable which is used to store the window/tray gets garba
 
 If you encounter this problem, the following articles may prove helpful:
 
-* [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Memory Management][memory-management]
+* [Variable Scope][variable-scope]
 
 If you want a quick fix, you can make the variables global by changing your code from this:
 
@@ -82,7 +82,7 @@ Due to the Node.js integration of Electron, there are some extra symbols inserte
 To solve this, you can turn off node integration in Electron:
 
 ```javascript
-// В головному процесі.
+// In the main process.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -110,9 +110,10 @@ delete window.module;
 
 When using Electron's built-in module you might encounter an error like this:
 
-    > require('electron').webFrame.setZoomFactor(1.0)
-    Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
-    
+```
+> require('electron').webFrame.setZoomFactor(1.0)
+Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
+```
 
 This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
 
@@ -124,8 +125,9 @@ console.log(require.resolve('electron'))
 
 and then check if it is in the following form:
 
-    "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
-    
+```
+"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
+```
 
 If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
 
@@ -135,3 +137,10 @@ npm uninstall -g electron
 ```
 
 However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+
+[memory-management]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management
+[variable-scope]: https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx
+[storage]: https://developer.mozilla.org/en-US/docs/Web/API/Storage
+[local-storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+[session-storage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
+[indexed-db]: https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
