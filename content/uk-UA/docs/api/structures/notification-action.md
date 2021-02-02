@@ -1,19 +1,19 @@
-# Об'єкт NotificationAction
+# NotificationAction Object
 
-* `type` String - Тип дії, може бути `button`.
-* `text` String - (опціонально) Назва для переданої дії.
+* `type` String - The type of action, can be `button`.
+* `text` String - (optional) The label for the given action.
 
-## Платформа / Підтримка дії
+## Platform / Action Support
 
-| Тип дії  | Підтримка платформами | Вмкористання `text`                  | `text` за замовчуванням | Обмеження                                                                                                                                                       |
-| -------- | --------------------- | ------------------------------------ | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button` | macOS                 | Використовується як напис для кнопки | "Show"                  | Максимум одна копка, якщо надано декілька, використовується тільки остання. Ця дія також не сумісев з `hasReply` і буде проігнорована якщо `hasReply` є `true`. |
+| Action Type | Platform Support | Usage of `text`                  | Default `text` | Limitations                                                                                                                                                          |
+| ----------- | ---------------- | -------------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button`    | macOS            | Used as the label for the button | "Show"         | Maximum of one button, if multiple are provided only the last is used.  This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
-### Button підтримка на macOS
+### Button support on macOS
 
-Щоб додаткові кнопки повідомлень працювали на macOS, ваш додаток має відповідати наступним вимогам.
+In order for extra notification buttons to work on macOS your app must meet the following criteria.
 
-* Застосунок підписано
-* Застосунок має `NSUserNotificationAlertStyle` встановлений в `alert` в `info.plist`.
+* App is signed
+* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `info.plist`.
 
-В іншому випадку кнопка просто не з'явиться.
+If either of these requirements are not met the button simply won't appear.
