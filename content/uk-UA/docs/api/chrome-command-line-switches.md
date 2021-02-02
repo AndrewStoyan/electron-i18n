@@ -1,8 +1,8 @@
-# Підтримувані Параметри Командного Рядка Chrome
+# Supported Chrome Command Line Switches
 
 > Command line switches supported by Electron.
 
-You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
+You can use [app.commandLine.appendSwitch][append-switch] to append them in your app's main script before the [ready][ready] event of the [app][app] module is emitted:
 
 ```javascript
 const {app} = require('electron')
@@ -28,7 +28,7 @@ Disable HTTP/2 and SPDY/3.1 protocols.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
-Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
+Debug-related flags, see the [Debugging the Main Process][debugging-main-process] guide for details.
 
 ## --remote-debugging-port=`port`
 
@@ -46,7 +46,7 @@ Specifies the flags passed to the Node JS engine. It has to be passed when start
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
+See the [Node documentation][node-cli] or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
 
 ## --proxy-server=`address:port`
 
@@ -96,8 +96,9 @@ A comma-separated list of servers for which integrated authentication is enabled
 
 For example:
 
-    --auth-server-whitelist='*example.com, *foobar.com, *baz'
-    
+```
+--auth-server-whitelist='*example.com, *foobar.com, *baz'
+```
 
 then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
 
@@ -125,7 +126,7 @@ Enables net log events to be saved and writes them to `path`.
 
 Prevents Chromium from lowering the priority of invisible pages' renderer processes.
 
-This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio](https://github.com/atom/atom/pull/9485/files).
+This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio][play-silent-audio].
 
 ## --enable-logging
 
@@ -146,3 +147,10 @@ Gives the per-module maximal V-logging levels to override the value given by `--
 Any pattern containing a forward or backward slash will be tested against the whole pathname and not just the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
 This switch only works when `--enable-logging` is also passed.
+
+[app]: app.md
+[append-switch]: app.md#appcommandlineappendswitchswitch-value
+[ready]: app.md#event-ready
+[play-silent-audio]: https://github.com/atom/atom/pull/9485/files
+[debugging-main-process]: ../tutorial/debugging-main-process.md
+[node-cli]: https://nodejs.org/api/cli.html
