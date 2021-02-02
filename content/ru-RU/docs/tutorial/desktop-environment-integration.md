@@ -12,11 +12,11 @@
 
 Windows и macOS предоставляют легкий доступ к списку последних документов открытых приложением через JumpList или dock меню, соответственно.
 
-**JumpList:**
+__JumpList:__
 
 ![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**Dock меню приложения:**
+__Dock меню приложения:__
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
@@ -48,7 +48,7 @@ When a file is requested from the recent documents menu, the `open-file` event o
 
 macOS enables developers to specify a custom menu for the dock, which usually contains some shortcuts for commonly used features of your application:
 
-**Dock меню из Terminal.app:**
+__Dock меню из Terminal.app:__
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png" height="354" width="341" />
 
@@ -68,6 +68,8 @@ const dockMenu = Menu.buildFromTemplate([
   {label: 'New Command...'}
 ])
 app.dock.setMenu(dockMenu)
+])
+app.dock.setMenu(dockMenu)
 ```
 
 ## Задачи пользователя (Windows)
@@ -78,7 +80,7 @@ On Windows you can specify custom actions in the `Tasks` category of JumpList, a
 > 
 > It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
 
-**Задачи Internet Explorer:**
+__Задачи Internet Explorer:__
 
 ![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
 
@@ -119,7 +121,7 @@ From MSDN, it's illustrated:
 > 
 > For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
 
-**Thumbnail toolbar of Windows Media Player:**
+__Thumbnail toolbar of Windows Media Player:__
 
 ![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
@@ -146,6 +148,8 @@ win.setThumbarButtons([
     flags: ['enabled', 'dismissonclick'],
     click () { console.log('button2 clicked.') }
   }
+]) }
+  }
 ])
 ```
 
@@ -161,7 +165,7 @@ win.setThumbarButtons([])
 
 In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
-**Launcher shortcuts of Audacious:**
+__Launcher shortcuts of Audacious:__
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
@@ -173,7 +177,7 @@ On Windows a taskbar button can be used to display a progress bar. This enables 
 
 The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
 
-**Progress bar in taskbar button:**
+__Progress bar in taskbar button:__
 
 ![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
@@ -191,7 +195,7 @@ On Windows a taskbar button can use a small overlay to display application statu
 
 > Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
 
-**Overlay on taskbar button:**
+__Overlay on taskbar button:__
 
 ![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
@@ -226,7 +230,7 @@ On macOS a window can set its represented file, so the file's icon can show in t
 
 You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
 
-**Represented file popup menu:**
+__Represented file popup menu:__
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
