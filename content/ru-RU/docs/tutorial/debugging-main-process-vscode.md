@@ -26,6 +26,9 @@ $ code electron-quick-start
     }
   ]
 }
+    }
+  ]
+}
 ```
 
 **Примечание:** Для Windows используйте `«${workspaceRoot}/node_modules/.bin/electron.cmd»` для `runtimeExecutable`.
