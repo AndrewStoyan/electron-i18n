@@ -6,7 +6,7 @@ Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBar(options)` *Experimental*
 
-* `options` Object 
+* `options` Object
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) (optional)
 
@@ -46,6 +46,44 @@ const result = new TouchBarLabel()
 // Spin button
 const spin = new TouchBarButton({
   label: '
+    result.textColor = '#FDFF00'
+  } else if (uniqueValues === 2) {
+    // 2 values are the same
+    result.label = '😍 Winner!'
+    result.textColor = '#FDFF00'
+  } else {
+    // No values are the same
+    result.label = '🙁 Spin Again'
+    result.textColor = null
+  }
+  spinning = false
+}
+
+const touchBar = new TouchBar([
+  spin,
+  new TouchBarSpacer({size: 'large'}),
+  reel1,
+  new TouchBarSpacer({size: 'small'}),
+  reel2,
+  new TouchBarSpacer({size: 'small'}),
+  reel3,
+  new TouchBarSpacer({size: 'large'}),
+  result
+])
+
+let window
+
+app.once('ready', () => {
+  window = new BrowserWindow({
+    frame: false,
+    titleBarStyle: 'hiddenInset',
+    width: 200,
+    height: 200,
+    backgroundColor: '#000'
+  })
+  window.loadURL('about:blank')
+  window.setTouchBar(touchBar)
+})
 ```
 
 ### Running the above example
