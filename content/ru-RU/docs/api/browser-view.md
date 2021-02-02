@@ -31,7 +31,7 @@ view.webContents.loadURL('https://electron.atom.io')
 
 ### `new BrowserView([options])` *Экспериментально*
 
-* `options` Object (опиционально) 
+* `options` Object (опиционально)
   * `webPreferences` Объект (опционально) - см. [BrowserWindow](browser-window.md).
 
 ### Статические методы
@@ -60,7 +60,7 @@ view.webContents.loadURL('https://electron.atom.io')
 
 #### `view.setAutoResize(options)` *Экспериментально*
 
-* `options` Object 
+* `options` Object
   * `width` Boolean - если `true`, то ширина будет увеличиваться и уменьшаться вместе с окном. По умолчанию `false`.
   * `height` Boolean - если `true`, то высота будет увеличиваться и уменьшаться вместе с окном. По умолчанию `false`.
 
