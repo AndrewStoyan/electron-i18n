@@ -9,58 +9,58 @@ const {systemPreferences} = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
-## Події (Events)
+## Events
 
 The `systemPreferences` object emits the following events:
 
-### Event: 'accent-color-changed' *Windows*
+### Event: 'accent-color-changed' _Windows_
 
 Returns:
 
 * `event` Event
 * `newColor` String - The new RGBA color the user assigned to be their system accent color.
 
-### Event: 'color-changed' *Windows*
+### Event: 'color-changed' _Windows_
 
 Returns:
 
 * `event` Event
 
-### Event: 'inverted-color-scheme-changed' *Windows*
+### Event: 'inverted-color-scheme-changed' _Windows_
 
 Returns:
 
 * `event` Event
 * `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
 
-## Методи
+## Methods
 
-### `systemPreferences.isDarkMode()` *macOS*
+### `systemPreferences.isDarkMode()` _macOS_
 
 Returns `Boolean` - Whether the system is in Dark Mode.
 
-### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
+### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` _macOS_
 
 Returns `Boolean` - Whether the Swipe between pages setting is on.
 
-### `systemPreferences.postNotification(event, userInfo)` *macOS*
+### `systemPreferences.postNotification(event, userInfo)` _macOS_
 
 * `event` String
 * `userInfo` Object
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
-### `systemPreferences.postLocalNotification(event, userInfo)` *macOS*
+### `systemPreferences.postLocalNotification(event, userInfo)` _macOS_
 
 * `event` String
 * `userInfo` Object
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
-### `systemPreferences.subscribeNotification(event, callback)` *macOS*
+### `systemPreferences.subscribeNotification(event, callback)` _macOS_
 
 * `event` String
-* `callback` Function 
+* `callback` Function
   * `event` String
   * `userInfo` Object
 
@@ -75,28 +75,28 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 * `AppleColorPreferencesChangedNotification`
 * `AppleShowScrollBarsSettingChanged`
 
-### `systemPreferences.unsubscribeNotification(id)` *macOS*
+### `systemPreferences.unsubscribeNotification(id)` _macOS_
 
 * `id` Integer
 
 Removes the subscriber with `id`.
 
-### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
+### `systemPreferences.subscribeLocalNotification(event, callback)` _macOS_
 
 * `event` String
-* `callback` Function 
+* `callback` Function
   * `event` String
   * `userInfo` Object
 
 Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`
 
-### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
+### `systemPreferences.unsubscribeLocalNotification(id)` _macOS_
 
 * `id` Integer
 
 Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
 
-### `systemPreferences.getUserDefault(key, type)` *macOS*
+### `systemPreferences.getUserDefault(key, type)` _macOS_
 
 * `key` String
 * `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
@@ -105,15 +105,15 @@ Returns `any` - The value of `key` in system preferences.
 
 This API uses `NSUserDefaults` on macOS. Some popular `key` and `type`s are:
 
-* `AppleInterfaceStyle`: `string`
-* `AppleAquaColorVariant`: `integer`
-* `AppleHighlightColor`: `string`
-* `AppleShowScrollBars`: `string`
-* `NSNavRecentPlaces`: `array`
-* `NSPreferredWebServices`: `dictionary`
-* `NSUserDictionaryReplacementItems`: `array`
+* `AppleInterfaceStyle`:  `string`
+* `AppleAquaColorVariant`:  `integer`
+* `AppleHighlightColor`:  `string`
+* `AppleShowScrollBars`:  `string`
+* `NSNavRecentPlaces`:  `array`
+* `NSPreferredWebServices`:  `dictionary`
+* `NSUserDictionaryReplacementItems`:  `array`
 
-### `systemPreferences.setUserDefault(key, type, value)` *macOS*
+### `systemPreferences.setUserDefault(key, type, value)` _macOS_
 
 * `key` String
 * `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
@@ -125,11 +125,11 @@ Note that `type` should match actual type of `value`. An exception is thrown if 
 
 This API uses `NSUserDefaults` on macOS. Some popular `key` and `type`s are:
 
-* `ApplePressAndHoldEnabled`: `boolean`
+* `ApplePressAndHoldEnabled`:  `boolean`
 
-### `systemPreferences.isAeroGlassEnabled()` *Windows*
+### `systemPreferences.isAeroGlassEnabled()` _Windows_
 
-Returns `Boolean` - `true` if [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) is enabled, and `false` otherwise.
+Returns `Boolean` - `true` if [DWM composition][dwm-composition] (Aero Glass) is enabled, and `false` otherwise.
 
 An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
 
@@ -155,7 +155,7 @@ if (browserOptions.transparent) {
 }
 ```
 
-### `systemPreferences.getAccentColor()` *Windows*
+### `systemPreferences.getAccentColor()` _Windows_
 
 Returns `String` - The users current system wide accent color preference in RGBA hexadecimal form.
 
@@ -167,9 +167,9 @@ const blue = color.substr(4, 2) // "cc"
 const alpha = color.substr(6, 2) // "dd"
 ```
 
-### `systemPreferences.getColor(color)` *Windows*
+### `systemPreferences.getColor(color)` _Windows_
 
-* `color` String - One of the following values: 
+* `color` String - One of the following values:
   * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
   * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
   * `3d-highlight` - Highlight color for three-dimensional display elements.
@@ -201,8 +201,12 @@ const alpha = color.substr(6, 2) // "dd"
   * `window-frame` - Window frame.
   * `window-text` - Text in windows.
 
-Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) for more details.
+Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs][windows-colors] for more details.
 
-### `systemPreferences.isInvertedColorScheme()` *Windows*
+### `systemPreferences.isInvertedColorScheme()` _Windows_
 
 Returns `Boolean` - `true` if an inverted color scheme, such as a high contrast theme, is active, `false` otherwise.
+
+[dwm-composition]: https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx
+
+[windows-colors]: https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx
