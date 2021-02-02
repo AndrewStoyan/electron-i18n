@@ -47,8 +47,9 @@ app.on('ready', () => {
 
 Note that it is not enough to call `app.commandLine.appendSwitch('--enable-sandbox')`, as electron/node startup code runs after it is possible to make changes to chromium sandbox settings. The switch must be passed to electron on the command-line:
 
-    electron --enable-sandbox app.js
-    
+```
+electron --enable-sandbox app.js
+```
 
 It is not possible to have the OS sandbox active only for some renderers, if `--enable-sandbox` is enabled, normal electron windows cannot be created.
 
@@ -109,7 +110,6 @@ To create a browserify bundle and use it as a preload script, something like the
       -x electron \
       -x fs \
       --insert-global-vars=__filename,__dirname -o preload.js
-    
 
 The `-x` flag should be used with any required module that is already exposed in the preload scope, and tells browserify to use the enclosing `require` function for it. `--insert-global-vars` will ensure that `process`, `Buffer` and `setImmediate` are also taken from the enclosing scope(normally browserify injects code for those).
 
