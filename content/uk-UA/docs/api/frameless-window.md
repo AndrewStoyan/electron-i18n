@@ -8,6 +8,7 @@ A frameless window is a window that has no [chrome](https://developer.mozilla.or
 
 To create a frameless window, you need to set `frame` to `false` in [BrowserWindow](browser-window.md)'s `options`:
 
+
 ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({width: 800, height: 600, frame: false})
@@ -69,7 +70,7 @@ win.show()
 
 ## Click-through window
 
-To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore) API:
+To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)][ignore-mouse-events] API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -114,3 +115,5 @@ In a frameless window the dragging behaviour may conflict with selecting text. F
 ## Context menu
 
 On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
+
+[ignore-mouse-events]: browser-window.md#winsetignoremouseeventsignore
