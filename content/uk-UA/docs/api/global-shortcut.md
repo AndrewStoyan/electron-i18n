@@ -1,49 +1,49 @@
 # globalShortcut
 
-> Виявляє клавіатурні події навіть якщо програма зараз не у фокусі.
+> Detect keyboard events when the application does not have keyboard focus.
 
-Процес: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
-Модуль `globalShortcut` може зареєструвати/скасувати реєстрацію глобального сполучення клавіш в операційній системі, тож ви можете налаштувати операції для різних сполучень клавіш.
+The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
 
-**Примітка:** Це сполучення клавіш глобальне; воно буде працювати навіть якщо програма зараз не у фокусі. Ви не повинні використовувати цей модуль, поки не відбудеться Подія `ready`.
+**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. You should not use this module until the `ready` event of the app module is emitted.
 
 ```javascript
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // Реєстрація слухача сполучення клавіш 'CommandOrControl+X'.
+  // Register a 'CommandOrControl+X' shortcut listener.
   const ret = globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X було натиснуто')
+    console.log('CommandOrControl+X is pressed')
   })
 
   if (!ret) {
-    console.log('реєстрація була невдалою')
+    console.log('registration failed')
   }
 
-  // Перевірити чи сполучення клавіш зареєстровано.
+  // Check whether a shortcut is registered.
   console.log(globalShortcut.isRegistered('CommandOrControl+X'))
 })
 
 app.on('will-quit', () => {
-  // Скасувати реєстрацію сполучення клавіш.
+  // Unregister a shortcut.
   globalShortcut.unregister('CommandOrControl+X')
 
-  // Скасувати реєстрацію всіх сполучень клавіш.
+  // Unregister all shortcuts.
   globalShortcut.unregisterAll()
 })
 ```
 
-## Методи
+## Methods
 
-Модуль `GlobalShortcut` має такі методи:
+The `globalShortcut` module has the following methods:
 
 ### `globalShortcut.register(accelerator, callback)`
 
 * `accelerator` [Accelerator](accelerator.md)
-* `callback` Функція
+* `callback` Function
 
-Реєструє глобальне сполучення клавіш `accelerator`. `callback` буде викликаний коли зареєстроване сполучення клавіш буде натиснуте користувачем.
+Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
 
 When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
 
@@ -51,7 +51,7 @@ When the accelerator is already taken by other applications, this call will sile
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Повертає `Boolean` - Якщо додаток має зареєстрований `accelerator`.
+Returns `Boolean` - Whether this application has registered `accelerator`.
 
 When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
 
@@ -59,8 +59,8 @@ When the accelerator is already taken by other applications, this call will stil
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Скасовує реєстрацію глобального сполучення клавіш `accelerator`.
+Unregisters the global shortcut of `accelerator`.
 
 ### `globalShortcut.unregisterAll()`
 
-Скасовує реєстрацію всіх глобальних сполучень клавіш.
+Unregisters all of the global shortcuts.
