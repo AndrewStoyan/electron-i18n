@@ -8,6 +8,7 @@ This module does not include a web interface so you need to open `chrome://traci
 
 **Note:** You should not use this module until the `ready` event of the app module is emitted.
 
+
 ```javascript
 const {app, contentTracing} = require('electron')
 
@@ -29,13 +30,13 @@ app.on('ready', () => {
 })
 ```
 
-## Методи
+## Methods
 
 The `contentTracing` module has the following methods:
 
 ### `contentTracing.getCategories(callback)`
 
-* `callback` Function 
+* `callback` Function
   * `categories` String[]
 
 Get a set of category groups. The category groups can change as new code paths are reached.
@@ -44,7 +45,7 @@ Once all child processes have acknowledged the `getCategories` request the `call
 
 ### `contentTracing.startRecording(options, callback)`
 
-* `options` Object 
+* `options` Object
   * `categoryFilter` String
   * `traceOptions` String
 * `callback` Function
@@ -55,7 +56,7 @@ Recording begins immediately locally and asynchronously on child processes as so
 
 `categoryFilter` is a filter to control what category groups should be traced. A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
 
-Приклади:
+Examples:
 
 * `test_MyTest*`,
 * `test_MyTest*,test_OtherStuff`,
@@ -76,7 +77,7 @@ The trace option will first be reset to the default option (`record_mode` set to
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Function 
+* `callback` Function
   * `resultFilePath` String
 
 Stop recording on all processes.
@@ -89,7 +90,7 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 
 ### `contentTracing.startMonitoring(options, callback)`
 
-* `options` Object 
+* `options` Object
   * `categoryFilter` String
   * `traceOptions` String
 * `callback` Function
@@ -111,7 +112,7 @@ Once all child processes have acknowledged the `stopMonitoring` request the `cal
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Function 
+* `callback` Function
   * `resultFilePath` String
 
 Get the current monitoring traced data.
@@ -120,9 +121,10 @@ Child processes typically cache trace data and only rarely flush and send trace 
 
 Once all child processes have acknowledged the `captureMonitoringSnapshot` request the `callback` will be called with a file that contains the traced data.
 
+
 ### `contentTracing.getTraceBufferUsage(callback)`
 
-* `callback` Function 
+* `callback` Function
   * `value` Number
   * `percentage` Number
 
